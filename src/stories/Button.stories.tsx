@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Button } from './Button';
@@ -38,4 +38,10 @@ export const Small = Template.bind({});
 Small.args = {
   size: 'small',
   label: 'Button',
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+  backgroundColor: 'red',
+  label: 'Danger',
 };
