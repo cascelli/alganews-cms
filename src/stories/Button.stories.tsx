@@ -18,7 +18,7 @@ export const Primary = Template.bind({});
 
 Primary.args = {
   variant: 'primary',
-  label: 'Button',
+  label: 'resetar senha',
 };
 
 
@@ -26,7 +26,7 @@ export const Danger = Template.bind({});
 
 Danger.args = {
   variant: 'danger',
-  label: 'Button',
+  label: 'resetar senha',
 };
 
 
@@ -34,7 +34,7 @@ export const Text = Template.bind({});
 
 Text.args = {
   variant: 'text',
-  label: 'Button',
+  label: 'resetar senha',
 };
 
 export const Disabled = Template.bind({});
@@ -42,5 +42,5 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   variant: 'primary',
   disabled: true,
-  label: 'Button',
+  label: 'resetar senha',
 };
