@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const Wrapper = styled.div< { color: string } >`
+export const Wrapper = styled.div<{ color: string }>`
   display: flex;
   flex-direction: column;
 
