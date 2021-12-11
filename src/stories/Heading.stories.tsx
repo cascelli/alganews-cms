@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Heading, { HeadingProps } from '../components/Typography/Heading';
 
 export default {
-  title: 'Example/Heading',
+  title: 'Typograph/Heading',
   component: Heading,
 
   // argTypes: {
