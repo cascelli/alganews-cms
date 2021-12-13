@@ -1,5 +1,6 @@
 import { mdiOpenInNew } from "@mdi/js";
 import Icon from "@mdi/react";
+import { spawn } from "child_process";
 import { useMemo } from "react";  // acrescentar pacote : yarn add react-table
 import { Column, useRowState, useTable } from 'react-table' // acrescentar pacote : yarn add -D @types/react-table
 
@@ -86,6 +87,8 @@ export default function Table() {
         Header: 'Column 1',
  
         accessor: 'col1', // accessor is the "key" in the data
+
+        Cell: (row) => <div style={{textAlign: 'right'}}>{row.value}</div>
  
       },
  
@@ -94,6 +97,9 @@ export default function Table() {
         Header: 'Column 2',
  
         accessor: 'col2',
+
+        Cell: (row) => <div style={{textAlign: 'center'}}>{row.value}</div>
+
  
       },
  
