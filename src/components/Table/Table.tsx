@@ -1,20 +1,24 @@
-import { mdiOpenInNew } from "@mdi/js";
-import Icon from "@mdi/react";
-import { spawn } from "child_process";
-import { useMemo } from "react";  // acrescentar pacote : yarn add react-table
-import { Column, useRowState, useTable } from 'react-table' // acrescentar pacote : yarn add -D @types/react-table
+//import { mdiOpenInNew } from "@mdi/js";
+//import Icon from "@mdi/react";
+//import { spawn } from "child_process";
+//import { useMemo } from "react";  // acrescentar pacote : yarn add react-table
+//import { Column, useRowState, useTable } from 'react-table' // acrescentar pacote : yarn add -D @types/react-table
 
+import { TableInstance } from 'react-table'
 import * as T from './Table.styles'
 
+/*
 type Data = {
   preview: React.ReactNode;
   col1: string,
   col2: string,
   actions: string
 }
+*/
 
-export default function Table() {
+export default function Table<T extends Object>({ instance }: { instance: TableInstance<T> }) {
 
+  /*
   const data = useMemo<Data[]>(
 
     () => [
@@ -69,7 +73,9 @@ export default function Table() {
     []
  
   )
+  */
   
+  /*
   const columns = useMemo<Column<Data>[]>(
 
     () => [
@@ -116,6 +122,7 @@ export default function Table() {
     []
  
   )
+  */
 
   //const TableInstance = useTable<Data>({ data, columns })
   const {
@@ -124,7 +131,8 @@ export default function Table() {
     prepareRow,
     headerGroups,
     rows
-  } = useTable<Data>({ data, columns })
+  //} = useTable<Data>({ data, columns })
+  } = instance
 
 
   return(
