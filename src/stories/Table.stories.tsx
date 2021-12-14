@@ -266,7 +266,7 @@ export function Default() {
 }
 
 
-export function NoData() {
+export function WithoutData() {
 
   const data = useMemo<Post[]>(
 
