@@ -1,4 +1,7 @@
+import { transparentize } from 'polished';
 import { Line } from 'react-chartjs-2';
+import styled from 'styled-components';
+import Heading from '../Typography/Heading';
 
 const data = {
   labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
@@ -8,7 +11,6 @@ const data = {
       data: [500, 400, 600, 100, 800, 20],
       fill: true,
       backgroundColor: '#0099ff',
-      //borderColor: 'transparent',
       borderColor: '#0099ff',
       borderWidth: 0.5,
       yAxisID: 'cashflow',
@@ -18,7 +20,6 @@ const data = {
       data: [100, 200, 250, 500, 1000, 600],
       fill: true,
       backgroundColor: '#274060',
-      //borderColor: 'transparent',
       borderColor: '#274060',
       borderWidth: 0.5,
       yAxisID: 'cashflow',
@@ -27,7 +28,7 @@ const data = {
 };
 
 const options: Chart.ChartOptions = {
-  maintainAspectRatio: false,
+  maintainAspectRatio: true,
   elements: {
     line: {
       tension: 0,
@@ -57,17 +58,6 @@ const options: Chart.ChartOptions = {
         position: 'left',
         id: 'cashflow',
       },
-      /* Removido segundo eixo porque os dois graficos usarao a mesma escala
-      {
-        type: 'linear',
-        display: true,
-        position: 'right',
-        id: 'y-axis-2',
-        gridLines: {
-          display: false,
-        },
-      },
-      */
     ],
   },
 };
@@ -75,12 +65,24 @@ const options: Chart.ChartOptions = {
 export interface ChartProps{}
 
 export default function Chart() {
-  return <div>
+  return <ChartWrapper style={{ width: 700}}>
+    <div style={{ marginBottom: 16}}>
+      <Heading level={3} >
+        {'Média de performance dos últimos 12 meses'}
+      </Heading>
+    </div>
     <Line 
-      typeof="line"
-      height={250}
+      type="line"
+      height={139}
+      width={600}
       data={data}
       options={options}
     />
-  </div>
+  </ChartWrapper>
 }
+
+const ChartWrapper = styled.div`
+  text-align: center;
+  border: 1px solid ${transparentize(0.9, '#274060')};
+  padding: 20px;
+`
