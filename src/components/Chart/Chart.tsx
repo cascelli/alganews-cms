@@ -8,16 +8,20 @@ const data = {
       data: [500, 400, 600, 100, 800, 20],
       fill: true,
       backgroundColor: '#0099ff',
-      borderColor: 'transparent',
-      yAxisID: 'y-axis-1',
+      //borderColor: 'transparent',
+      borderColor: '#0099ff',
+      borderWidth: 0.5,
+      yAxisID: 'cashflow',
     },
     {
       label: 'Despesas',
-      data: [1, 2, 1, 1, 2, 2],
+      data: [100, 200, 250, 500, 1000, 600],
       fill: true,
       backgroundColor: '#274060',
-      borderColor: 'transparent',
-      yAxisID: 'y-axis-2',
+      //borderColor: 'transparent',
+      borderColor: '#274060',
+      borderWidth: 0.5,
+      yAxisID: 'cashflow',
     },
   ],
 };
@@ -43,8 +47,9 @@ const options: Chart.ChartOptions = {
         type: 'linear',
         display: true,
         position: 'left',
-        id: 'y-axis-1',
+        id: 'cashflow',
       },
+      /* Removido segundo eixo porque os dois graficos usarao a mesma escala
       {
         type: 'linear',
         display: true,
@@ -54,6 +59,7 @@ const options: Chart.ChartOptions = {
           display: false,
         },
       },
+      */
     ],
   },
 };
