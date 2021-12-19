@@ -14,7 +14,7 @@ export default {
 
 const Template: ComponentStory<typeof SessionControllerProps> = (args) => 
   <div>
-    <SessionController {...args} />;
+    <SessionController {...args} />
   </div>
 
 export const Default = Template.bind({});
