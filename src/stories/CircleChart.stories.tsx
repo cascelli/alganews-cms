@@ -1,4 +1,5 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+//import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 
 import CircleChart, { CircleChartProps } from '../components/CircleChart';
 
@@ -14,9 +15,12 @@ export default {
       }
     }
   }
-} as ComponentMeta<typeof CircleChart>;
+//} as ComponentMeta<typeof CircleChart>;
+} as Meta;
 
-const Template: ComponentStory<typeof CircleChartProps> = (args) => <CircleChart {...args} />;
+//const Template: ComponentStory<typeof CircleChartProps> = (args) => <CircleChart {...args} />;
+//const Template: ComponentStory<typeof CircleChart> = (args) => <CircleChart {...args} />;
+const Template: Story<CircleChartProps> = (args) => <CircleChart {...args} />;
 
 export const Default = Template.bind({});
 

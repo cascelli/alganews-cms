@@ -1,4 +1,5 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+//import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 
 import Info, { InfoProps } from '../components/Info/Info';
 
@@ -10,9 +11,12 @@ export default {
   //   backgroundColor: { control: 'color' },
   // }
 
-} as ComponentMeta<typeof Info>;
+//} as ComponentMeta<typeof Info>;
+} as Meta;
 
-const Template: ComponentStory<typeof InfoProps> = (args) => <Info {...args} />;
+//const Template: ComponentStory<typeof InfoProps> = (args) => <Info {...args} />;
+//const Template: ComponentStory<typeof Info> = (args) => <Info {...args} />;
+const Template: Story<InfoProps> = (args) => <Info {...args} />;
 
 export const Primary = Template.bind({});
 

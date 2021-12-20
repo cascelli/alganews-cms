@@ -1,4 +1,5 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+//import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 
 import Heading, { HeadingProps } from '../components/Typography/Heading';
 
@@ -10,9 +11,12 @@ export default {
   //   backgroundColor: { control: 'color' },
   // }
 
-} as ComponentMeta<typeof Heading>;
+//} as ComponentMeta<typeof Heading>;
+} as Meta;
 
-const Template: ComponentStory<typeof HeadingProps> = (args) => <Heading {...args} />;
+//const Template: ComponentStory<typeof HeadingProps> = (args) => <Heading {...args} />;
+//const Template: ComponentStory<typeof Heading> = (args) => <Heading {...args} />;
+const Template: Story<HeadingProps> = (args) => <Heading {...args} />;
 
 export const Heading1 = Template.bind({});
 Heading1.args = {

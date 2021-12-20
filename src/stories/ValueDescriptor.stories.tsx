@@ -1,13 +1,17 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+//import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 
 import ValueDescriptor, { ValueDescriptorProps } from '../components/ValueDescriptor/ValueDescriptor';
 
 export default {
   title: 'Example/ValueDescriptor',
   component: ValueDescriptor,
-} as ComponentMeta<typeof ValueDescriptor>;
+//} as ComponentMeta<typeof ValueDescriptor>;
+} as Meta;
 
-const Template: ComponentStory<typeof ValueDescriptorProps> = (args) => <ValueDescriptor {...args} />;
+//const Template: ComponentStory<typeof ValueDescriptorProps> = (args) => <ValueDescriptor {...args} />;
+//const Template: ComponentStory<typeof ValueDescriptor> = (args) => <ValueDescriptor {...args} />;
+const Template: Story<ValueDescriptorProps> = (args) => <ValueDescriptor {...args} />;
 
 export const Default = Template.bind({})
 Default.args = {

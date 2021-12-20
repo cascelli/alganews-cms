@@ -1,18 +1,17 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+//import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 
 import Paragraph, { ParagraphProps } from '../components/Typography/Paragraph'
 
 export default {
   title: 'Typograph/Paragraph',
   component: Paragraph,
+//} as ComponentMeta<typeof Paragraph>
+} as Meta;
 
-  // argTypes: {
-  //   backgroundColor: { control: 'color' },
-  // }
-
-} as ComponentMeta<typeof Paragraph>
-
-const Template: ComponentStory<typeof ParagraphProps> = (args) => <Paragraph {...args} />
+//const Template: ComponentStory<typeof ParagraphProps> = (args) => <Paragraph {...args} />
+//const Template: ComponentStory<typeof Paragraph> = (args) => <Paragraph {...args} />
+const Template: Story<ParagraphProps> = (args) => <Paragraph {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

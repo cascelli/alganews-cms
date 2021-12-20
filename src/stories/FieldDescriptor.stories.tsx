@@ -1,13 +1,17 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+//import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 
 import FieldDescriptor, { FieldDescriptorProps } from '../components/FieldDescriptor/FieldDescriptor';
 
 export default {
   title: 'Example/FieldDescriptor',
   component: FieldDescriptor,
-} as ComponentMeta<typeof FieldDescriptor>;
+//} as ComponentMeta<typeof FieldDescriptor>;
+} as Meta;
 
-const Template: ComponentStory<typeof FieldDescriptorProps> = (args) => <FieldDescriptor {...args} />;
+//const Template: ComponentStory<typeof FieldDescriptorProps> = (args) => <FieldDescriptor {...args} />;
+//const Template: ComponentStory<typeof FieldDescriptor> = (args) => <FieldDescriptor {...args} />;
+const Template: Story<FieldDescriptorProps> = (args) => <FieldDescriptor {...args} />;
 
 export const Default = Template.bind({})
 Default.args = {

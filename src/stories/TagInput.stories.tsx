@@ -1,4 +1,6 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+//import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
+
 import { useState } from 'react';
 
 import TagInput, { TagInputProps } from '../components/TagInput';
@@ -7,9 +9,12 @@ import { Tag } from 'react-tag-input';
 export default {
   title: 'Example/TagInput',
   component: TagInput,
-} as ComponentMeta<typeof TagInput>;
+//} as ComponentMeta<typeof TagInput>;
+} as Meta;
 
-const Template: ComponentStory<typeof TagInputProps> = (args) => 
+//const Template: ComponentStory<typeof TagInputProps> = (args) => 
+//const Template: ComponentStory<typeof TagInput> = (args) => 
+const Template: Story<TagInputProps> = (args) => 
   <div>
     <TagInput {...args} />
   </div>

@@ -1,7 +1,8 @@
 //import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { mdiOpenInNew } from '@mdi/js';
 import Icon from '@mdi/react';
-import { ComponentMeta } from '@storybook/react';
+//import { ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import { useMemo } from 'react';
 import { Column, useTable } from 'react-table';
@@ -18,7 +19,8 @@ export default {
   //   backgroundColor: { control: 'color' },
   // }
 
-} as ComponentMeta<typeof Table>;
+//} as ComponentMeta<typeof Table>;
+} as Meta;
 
 /*
 //const Template: ComponentStory<typeof { TableProps }> = (args) => <Table {...args} />;

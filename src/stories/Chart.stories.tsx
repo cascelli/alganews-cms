@@ -1,4 +1,6 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+//import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
+
 import Chart, { ChartProps } from '../components/Chart/Chart';
 
 const data: Chart.ChartData = {
@@ -28,11 +30,14 @@ const data: Chart.ChartData = {
 export default {
   title: 'Example/Chart',
   component: Chart,
-} as ComponentMeta<typeof Chart>;
+//} as ComponentMeta<typeof Chart>;
+} as Meta;
 
 
 
-const Template: ComponentStory<typeof ChartProps> = (args) => <Chart {...args} />;
+//const Template: ComponentStory<typeof ChartProps> = (args) => <Chart {...args} />;
+//const Template: ComponentStory<typeof Chart> = (args) => <Chart {...args} />;
+const Template: Story<ChartProps> = (args) => <Chart {...args} />;
 
 export const Default = Template.bind({});
 

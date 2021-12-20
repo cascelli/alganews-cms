@@ -1,13 +1,17 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+//import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 
 import Profile, { ProfileProps } from '../components/Profile';
 
 export default {
   title: 'Example/Profile',
   component: Profile,
-} as ComponentMeta<typeof Profile>;
+//} as ComponentMeta<typeof Profile>;
+} as Meta;
 
-const Template: ComponentStory<typeof ProfileProps> = (args) => <Profile {...args} />;
+//const Template: ComponentStory<typeof ProfileProps> = (args) => <Profile {...args} />;
+//const Template: ComponentStory<typeof Profile> = (args) => <Profile {...args} />;
+const Template: Story<ProfileProps> = (args) => <Profile {...args} />;
 
 export const Default = Template.bind({});
 

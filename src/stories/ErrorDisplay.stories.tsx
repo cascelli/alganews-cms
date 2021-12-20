@@ -1,4 +1,6 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+//import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
+
 import ErrorDisplay, { ErrorDisplayProps } from '../components/ErrorDisplay';
 
 export default {
@@ -11,9 +13,12 @@ export default {
       }
     }
   }
-} as ComponentMeta<typeof ErrorDisplay>;
+//} as ComponentMeta<typeof ErrorDisplay>;
+} as Meta;
 
-const Template: ComponentStory<typeof ErrorDisplayProps> = (args) => 
+//const Template: ComponentStory<typeof ErrorDisplayProps> = (args) => 
+//const Template: ComponentStory<typeof ErrorDisplay> = (args) => 
+const Template: Story<ErrorDisplayProps> = (args) => 
   <div>
     <ErrorDisplay {...args} />
   </div>
