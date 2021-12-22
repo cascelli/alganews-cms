@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+//import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import NotFound404 from './views/NotFound404.view';
 import Contact from './views/Contact.view';
 import Home from './views/Home.view';
+import UserView from './views/User.view';
+import CalcView from './views/Calc.view';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -22,11 +24,13 @@ ReactDOM.render(
 
           <Route path={'/home'}> <Home /> </Route>
           <Route path={'/contato'} > <Contact /> </Route>
+          <Route path={'/usuario/:userId'} > <UserView /> </Route>
+          <Route path={'/sum/:a/:b'} > <CalcView /> </Route>
           <Route> <NotFound404 /> </Route>
 
           {/* <Route path={'/'} element={<Home /> } />
           <Route path={'/contato'} element ={<Contact />} />
-        <Route element={<NotFound404 />} /> */}
+          <Route element={<NotFound404 />} /> */}
 
           {/* <Route path={'/home'} element={<Home />}></Route>
           <Route path={'/contato'} element={<Contact />} ></Route> 
