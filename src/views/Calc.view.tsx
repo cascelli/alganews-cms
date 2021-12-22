@@ -1,12 +1,31 @@
 import { useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
+
+// Funcao para recuperar os query parameters de uma URL para facilitar 
+function useQuery() {
+  // URLSearchParams é uma função existente por padrao nos navegadores atuais. Não é do React 
+  return new URLSearchParams(useLocation().search) 
+}
+
 
 export default function CalcView() {
 //  const params = useParams<{ a: string, b: string }>()
   const params = useParams()
+
+  //const location = useLocation()
+  const query = useQuery()
   
   useEffect(() => {
     console.log(params)
+    // obtem o parametro search do hook location
+    // faz um split da string pelo delimitador '='
+    // obtém o indice 1 do array resultante do split
+    //console.log(location.search.split('=')[1]) 
+    //
+    // alternativa a opção anterior : 
+    //const query = new URLSearchParams(location.search)
+    console.log(query.get('operation')) 
+
   }, [])
 
   return <div>

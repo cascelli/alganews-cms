@@ -25,7 +25,7 @@ ReactDOM.render(
           <Route path={'/home'}> <Home /> </Route>
           <Route path={'/contato'} > <Contact /> </Route>
           <Route path={'/usuario/:userId'} > <UserView /> </Route>
-          <Route path={'/sum/:a/:b'} > <CalcView /> </Route>
+          <Route path={'/calc/:a/:b'} > <CalcView /> </Route>
           <Route> <NotFound404 /> </Route>
 
           {/* <Route path={'/'} element={<Home /> } />
