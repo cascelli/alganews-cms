@@ -9,17 +9,20 @@ import Contact from './views/Contact.view';
 import Home from './views/Home.view';
 import UserView from './views/User.view';
 import CalcView from './views/Calc.view';
+import NavBar from './components/NavBar';
 
 ReactDOM.render(
   <React.StrictMode>
     <div>
+      {/* Movido para componente NavBar.tsx
       <nav>
         <ul>
           <li><a href="/Home">Home</a></li>
           <li><a href="/contato">Contato</a></li>
         </ul>
-      </nav>
+      </nav> */}
       <BrowserRouter>
+        <NavBar />
         <Switch>
 
           <Route path={'/home'}> <Home /> </Route>
