@@ -26,7 +26,7 @@ export default function CalcView() {
     //const query = new URLSearchParams(location.search)
     console.log(query.get('operation')) 
 
-  }, [])
+  }, []) //eslint-disable-line
 
   return <div>
     <h1>Soma - { Number(params.a) + Number(params.b) }</h1>

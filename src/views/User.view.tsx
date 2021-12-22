@@ -8,7 +8,7 @@ export default function UserView() {
 
   useEffect(() => {
     console.log(params);
-  },[])
+  },[]) //eslint-disable-line
   
   return <div>
     <h1>Usuário - { params.userId } </h1>
