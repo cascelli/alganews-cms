@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-//import App from './App';
+//import './index.css'; // Trocado por imports.css
+import './core/imports.css';
+//import App from './App'; // removido do projeto
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import NotFound404 from './views/NotFound404.view';
-import Contact from './views/Contact.view';
-import Home from './views/Home.view';
-import UserView from './views/User.view';
-import CalcView from './views/Calc.view';
-import NavBar from './components/NavBar';
+import NotFound404 from './app/views/NotFound404.view';
+import Contact from './app/views/Contact.view';
+import Home from './app/views/Home.view';
+import UserView from './app/views/User.view';
+import CalcView from './app/views/Calc.view';
+import NavBar from './app/components/NavBar';
 
 ReactDOM.render(
   <React.StrictMode>

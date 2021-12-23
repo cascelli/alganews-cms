@@ -8,7 +8,7 @@ import { useMemo } from 'react';
 import { Column, useTable } from 'react-table';
 
 //import Table, { TableProps } from '../components/Table/Table';
-import Table from '../components/Table/Table';
+import Table from '../app/components/Table/Table';
 //import Table from '../components/Table/Table';
 
 export default {

@@ -1,7 +1,7 @@
 //import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Story, Meta } from '@storybook/react';
 
-import MarkdownEditor, { MarkdownEditorProps } from '../components/MarkdownEditor';
+import MarkdownEditor, { MarkdownEditorProps } from '../app/components/MarkdownEditor';
 
 export default {
   title: 'Example/MarkdownEditor',

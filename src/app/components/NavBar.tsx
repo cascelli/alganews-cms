@@ -33,11 +33,12 @@ export default function NavBar() {
   return <nav>
     <ul>
       {/* Substituindo <a href> por <Link to>
-      <li><a onClick={handleAnchorClick} href="/Home">Home</a></li>
+      <li><a onClick={handleAnchorClick} href="/home">Home</a></li>
       <li><a onClick={handleAnchorClick} href="/contato">Contato</a></li> 
       */}
-      <li><Link to="/Home">Home</Link></li>
+      <li><Link to="/home">Home</Link></li>
       <li><Link to="/contato">Contato</Link></li>
+      <li><Link to="/calc/1/2">Calculo - 1 + 2</Link></li>
     </ul>
   </nav>
 }

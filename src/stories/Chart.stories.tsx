@@ -1,7 +1,7 @@
 //import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Story, Meta } from '@storybook/react';
 
-import Chart, { ChartProps } from '../components/Chart/Chart';
+import Chart, { ChartProps } from '../app/components/Chart/Chart';
 
 const data: Chart.ChartData = {
   labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
