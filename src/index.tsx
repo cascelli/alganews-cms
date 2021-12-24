@@ -11,10 +11,13 @@ import Home from './app/views/Home.view';
 import UserView from './app/views/User.view';
 import CalcView from './app/views/Calc.view';
 import NavBar from './app/components/NavBar';
+import GlobalStyles from './core/globalStyles'
 
 ReactDOM.render(
   <React.StrictMode>
-    <div>
+
+    {/* <div> */}
+
       {/* Movido para componente NavBar.tsx
       <nav>
         <ul>
@@ -22,6 +25,7 @@ ReactDOM.render(
           <li><a href="/contato">Contato</a></li>
         </ul>
       </nav> */}
+      
       <BrowserRouter>
         <NavBar />
         <Switch>
@@ -42,7 +46,11 @@ ReactDOM.render(
 
         </Switch>
       </BrowserRouter>
-    </div>
+
+    {/* </div> */}
+    
+    <GlobalStyles />
+
   </React.StrictMode>,
   document.getElementById('root')
 );
