@@ -27,7 +27,7 @@ ReactDOM.render(
       </nav> */}
       
       <BrowserRouter>
-        <NavBar />
+        {/* <NavBar /> */}
         <Switch>
 
           <Route path={'/home'}> <Home /> </Route>
