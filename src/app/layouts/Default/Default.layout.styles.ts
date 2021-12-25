@@ -24,7 +24,10 @@ export const Main = styled.main`
 `
 
 export const Navigation = styled.nav`
-
+  display: flex;
+  padding-right: 32px;
+  /* align-items: center; */
+  justify-content: flex-end;
 `
 
 export const Aside = styled.aside`

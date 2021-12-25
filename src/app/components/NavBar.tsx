@@ -2,6 +2,7 @@
 // import { useHistory } from "react-router-dom";
 
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 export default function NavBar() {
 
@@ -30,15 +31,37 @@ export default function NavBar() {
 
 
 
-  return <nav>
-    <ul>
+  // return <nav>
+  return <>
+    {/* <ul> */}
+    <List>
       {/* Substituindo <a href> por <Link to>
       <li><a onClick={handleAnchorClick} href="/home">Home</a></li>
       <li><a onClick={handleAnchorClick} href="/contato">Contato</a></li> 
       */}
-      <li><Link to="/home">Home</Link></li>
-      <li><Link to="/contato">Contato</Link></li>
-      <li><Link to="/calc/1/2">Calculo - 1 + 2</Link></li>
-    </ul>
-  </nav>
+      <Item><Link to="/home">Home</Link></Item>
+      <Item><Link to="/contato">Contato</Link></Item>
+      <Item><Link to="/calc/1/2">Calculo - 1 + 2</Link></Item>
+    {/* </ul> */}
+    </List>
+  </>
+  // </nav>
+
 }
+
+const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+`
+
+const Item = styled.li`
+  text-transform: lowercase;
+  font-size: 18px;
+
+  a {
+    text-decoration: none;
+    color: #274060;
+  }
+`

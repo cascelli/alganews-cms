@@ -10,7 +10,7 @@ import Contact from './app/views/Contact.view';
 import Home from './app/views/Home.view';
 import UserView from './app/views/User.view';
 import CalcView from './app/views/Calc.view';
-import NavBar from './app/components/NavBar';
+//import NavBar from './app/components/NavBar';
 import GlobalStyles from './core/globalStyles'
 
 ReactDOM.render(
