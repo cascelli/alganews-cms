@@ -9,7 +9,7 @@ export const Wrapper = styled.div<{ color: string }>`
 
   span.Description {
     font-size: 12px;
-    text-transform: lowercase;
+    /* text-transform: lowercase; */
   }
   span.Currency {
     color: ${p => p.color};

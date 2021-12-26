@@ -56,6 +56,6 @@ export const Percentage = styled.span<PercentageProps>`
 export const Caption = styled.span`
   font-size: 1em;
   font-weight: 400;
-  text-transform: lowercase;
+  /* text-transform: lowercase; */
   color: #274060;
 `
