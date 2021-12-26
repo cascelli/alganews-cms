@@ -1,3 +1,4 @@
+import { NONAME } from "dns";
 import styled from "styled-components";
 
 interface PercentageProps {
@@ -15,7 +16,6 @@ export const Wrapper = styled.div`
 export const SvgWrapper = styled.div`
   position: relative;
 
-
   &:not(:last-child) {
     margin-bottom: 16px;
   }
@@ -31,7 +31,8 @@ export const Circle = styled.circle`
 `
 
 export const CircleBG = styled.circle.attrs({
-  fill: '#fff',
+  // fill: '#fff',
+  fill: 'none',
 })``
 
 export const Percentage = styled.span<PercentageProps>`

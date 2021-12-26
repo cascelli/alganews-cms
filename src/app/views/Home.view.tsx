@@ -1,13 +1,16 @@
 import usePageTitle from "../../core/Hooks/usePageTitle"
 import PostsList from "../features/PostsList"
-import UserMetrics from "../features/UserMetrics"
+import UserPerformance from "../features/UserPerformance"
+import UserTopTags from "../features/UserTopTags"
 import DefaultLayout from "../layouts/Default"
 
 export default function Home() {
   usePageTitle('Home')
   return <DefaultLayout>
 
-    <UserMetrics />
+    <UserTopTags />
+
+    <UserPerformance />
 
     <PostsList />
  
