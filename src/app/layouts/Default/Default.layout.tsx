@@ -1,4 +1,3 @@
-import SessionControllerStories from '../../../stories/SessionController.stories'
 import Logo from '../../components/Logo'
 import NavBar from '../../components/NavBar'
 import SessionController from '../../components/SessionController'

@@ -1,7 +1,8 @@
 // import { MouseEvent } from "react";
 // import { useHistory } from "react-router-dom";
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export default function NavBar() {
@@ -39,9 +40,16 @@ export default function NavBar() {
       <li><a onClick={handleAnchorClick} href="/home">Home</a></li>
       <li><a onClick={handleAnchorClick} href="/contato">Contato</a></li> 
       */}
-      <Item><Link to="/home">Home</Link></Item>
+
+      {/* <Item><Link to="/home">Home</Link></Item>
       <Item><Link to="/contato">Contato</Link></Item>
-      <Item><Link to="/calc/1/2">Calculo - 1 + 2</Link></Item>
+      <Item><Link to="/calc/1/2">Calculo - 1 + 2</Link></Item> */}
+
+      {/* <Item><NavLink exact to="/">Home</NavLink></Item> */}
+      <Item><NavLink exact to="/home">Home</NavLink></Item>
+      <Item><NavLink exact to="/contato">Contato</NavLink></Item>
+      <Item><NavLink exact to="/calc/1/2">Calculo - 1 + 2</NavLink></Item>
+
     {/* </ul> */}
     </List>
   </>
@@ -63,5 +71,9 @@ const Item = styled.li`
   a {
     text-decoration: none;
     color: #274060;
+
+    &.active {
+      color: #09f;
+    }
   }
 `

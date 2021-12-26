@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useLocation, useParams } from "react-router-dom"
+import DefaultLayout from "../layouts/Default"
 
 // Funcao para recuperar os query parameters de uma URL para facilitar 
 function useQuery() {
@@ -28,7 +29,7 @@ export default function CalcView() {
 
   }, []) //eslint-disable-line
 
-  return <div>
+  return <DefaultLayout>
     <h1>Soma - { Number(params.a) + Number(params.b) }</h1>
-  </div>
+  </DefaultLayout>
 }
