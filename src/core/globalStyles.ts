@@ -1,3 +1,4 @@
+import curriedTransparentize from 'polished/lib/color/transparentize';
 import { createGlobalStyle } from 'styled-components/macro';
 
 export default createGlobalStyle`
@@ -11,5 +12,9 @@ export default createGlobalStyle`
     font-family: 'Lato', sans-serif;
     background-color: #F3F8FA;
     color: #274060
+  }
+
+  .confirm-overlay {
+    background-color: ${curriedTransparentize(0.2, '#274060')};
   }
 `
