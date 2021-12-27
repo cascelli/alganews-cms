@@ -2,6 +2,7 @@ import Icon from "@mdi/react"
 import { mdiInformation } from "@mdi/js"
 
 import styled from "styled-components"
+import curriedTransparentize from "polished/lib/color/transparentize"
 
 export interface InfoProps {
   title: string,
@@ -33,6 +34,7 @@ const InfoWrapper = styled.div`
   justify-content: center;
   background-color: #F3F8FA;
   width: 373px;
+  border: 1px solid ${curriedTransparentize(0.9, '#274060')};
 `
 
 const InfoInnerContent = styled.div`
