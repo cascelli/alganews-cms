@@ -14,6 +14,7 @@ import CalcView from './app/views/Calc.view';
 import GlobalStyles from './core/globalStyles'
 import EditorsListView from './app/views/EditorsList.view';
 import PostCreateView from './app/views/PostCreate.view';
+import EditorProfileView from './app/views/EditorProfile.view';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -34,6 +35,8 @@ ReactDOM.render(
 
           <Route path={'/home'}> <Home /> </Route>
           <Route path={'/editores'} > <EditorsListView /> </Route>
+          {/* <Route path={'/editores/:id'} > <EditorProfileView /> </Route> */}
+          <Route path={'/editor/:id'} > <EditorProfileView /> </Route>
           <Route path={'/posts/criar'} > <PostCreateView /> </Route>
 
           <Route path={'/contato'} > <Contact /> </Route>
