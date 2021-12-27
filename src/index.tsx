@@ -13,6 +13,7 @@ import CalcView from './app/views/Calc.view';
 //import NavBar from './app/components/NavBar';
 import GlobalStyles from './core/globalStyles'
 import EditorsListView from './app/views/EditorsList.view';
+import PostCreateView from './app/views/PostCreate.view';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -33,6 +34,7 @@ ReactDOM.render(
 
           <Route path={'/home'}> <Home /> </Route>
           <Route path={'/editores'} > <EditorsListView /> </Route>
+          <Route path={'/posts/criar'} > <PostCreateView /> </Route>
 
           <Route path={'/contato'} > <Contact /> </Route>
           <Route path={'/usuario/:userId'} > <UserView /> </Route>
