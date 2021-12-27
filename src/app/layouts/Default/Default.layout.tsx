@@ -1,4 +1,5 @@
 import confirm from '../../../core/utils/confirm'
+import info from '../../../core/utils/info'
 import Logo from '../../components/Logo'
 import NavBar from '../../components/NavBar'
 import SessionController from '../../components/SessionController'
@@ -25,7 +26,20 @@ function DefaultLayout(props: DefaultLayoutProps) {
           onLogout={() => {
             confirm({
               title: 'Você quer deslogar ?',
-              onConfirm: () => window.alert('Confirmado'),
+              onConfirm: () => {
+
+                // setTimeout(() => {
+
+                  info({
+                    title: 'Você foi deslogado',
+                    description: 'Você será redirecionado para a página de login'
+                  })
+
+                // },0)
+
+                // console.log('executado')
+                
+              },
               onCancel: () => window.alert('Cancelado'),
             })
           }} 
