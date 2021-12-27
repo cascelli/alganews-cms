@@ -1,4 +1,3 @@
-import { NONAME } from "dns";
 import styled from "styled-components";
 
 interface PercentageProps {

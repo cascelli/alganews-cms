@@ -12,6 +12,7 @@ import UserView from './app/views/User.view';
 import CalcView from './app/views/Calc.view';
 //import NavBar from './app/components/NavBar';
 import GlobalStyles from './core/globalStyles'
+import EditorsListView from './app/views/EditorsList.view';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -31,9 +32,12 @@ ReactDOM.render(
         <Switch>
 
           <Route path={'/home'}> <Home /> </Route>
+          <Route path={'/editores'} > <EditorsListView /> </Route>
+
           <Route path={'/contato'} > <Contact /> </Route>
           <Route path={'/usuario/:userId'} > <UserView /> </Route>
           <Route path={'/calc/:a/:b'} > <CalcView /> </Route>
+
           <Route> <NotFound404 /> </Route>
 
           {/* <Route path={'/'} element={<Home /> } />
