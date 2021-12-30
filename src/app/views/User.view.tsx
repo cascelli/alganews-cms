@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom"
 
 export default function UserView() {
 
- // const params = useParams<{ userId: string }>()
-  const params = useParams()
+  const params = useParams<{ userId: string }>()
+  //const params = useParams()
 
   useEffect(() => {
     console.log(params);

@@ -10,8 +10,8 @@ function useQuery() {
 
 
 export default function CalcView() {
-//  const params = useParams<{ a: string, b: string }>()
-  const params = useParams()
+  const params = useParams<{ a: string, b: string }>()
+  //const params = useParams()
 
   //const location = useLocation()
   const query = useQuery()

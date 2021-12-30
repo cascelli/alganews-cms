@@ -14,7 +14,8 @@ export default function NotFound404() {
       variant="primary" 
       label="Ir para a home" 
       // onClick={() => history.push('/home')}
-      onClick={() => history.replace('/home')}
+      //onClick={() => history.replace('/home')}
+      onClick={() => history.replace('/')}
     />
   </NotFound404Wrapper>
 }

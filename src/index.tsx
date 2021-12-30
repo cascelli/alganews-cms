@@ -33,27 +33,67 @@ ReactDOM.render(
         {/* <NavBar /> */}
         <Switch>
 
-          <Route path={'/home'}> <Home /> </Route>
-          <Route path={'/editores'} > <EditorsListView /> </Route>
-          {/* <Route path={'/editores/:id'} > <EditorProfileView /> </Route> */}
-          <Route path={'/editor/:id'} > <EditorProfileView /> </Route>
-          <Route path={'/posts/criar'} > <PostCreateView /> </Route>
+          { /* React Router Versao 5.1 - Instalar : yarn add react-router@5.1.0 */ }
+          { /* - Feito downgrade do React Router para versao 5.1.0
+               - Problemas com versões mais novas : parâmetro exact - implementação alternativa não funcional */ }
 
-          <Route path={'/contato'} > <Contact /> </Route>
-          <Route path={'/usuario/:userId'} > <UserView /> </Route>
-          <Route path={'/calc/:a/:b'} > <CalcView /> </Route>
+            {/* <Route path="/home" exact> <Home /> </Route> */}
+            <Route path="/" exact> {<Home />} </Route>
 
-          <Route> <NotFound404 /> </Route>
+            <Route path="/editores" exact> <EditorsListView /> </Route>
+            <Route path="/editores/:id" > <EditorProfileView /> </Route>
 
-          {/* <Route path={'/'} element={<Home /> } />
-          <Route path={'/contato'} element ={<Contact />} />
-          <Route element={<NotFound404 />} /> */}
+            <Route path="/posts/criar" > <PostCreateView /> </Route>
 
-          {/* <Route path={'/home'} element={<Home />}></Route>
-          <Route path={'/contato'} element={<Contact />} ></Route> 
-          <Route element={<NotFound404 />} ></Route> */}
+            { /* Eliminar da aplicação - inicio - deixado apenas como exemplo */}
+            <Route path="/contato" > <Contact /> </Route>
+            <Route path="/usuario/:userId" > <UserView /> </Route>
+            <Route path="/calc/:a/:b" > <CalcView /> </Route>
+            { /* Eliminar da aplicação - fim */}
+
+            <Route> <NotFound404 /> </Route>
+
+
+
+          { /* React Router Versao > 5.1 e < 6 */ }
+
+            { /*
+
+            <Route path="/home" children={<Home />} />
+
+            <Route path="/editores" children={<EditorsListView />} />
+            // <Route path="/editores/:id" children={<EditorProfileView />} /> //
+
+            <Route path="/editor/:id" children={<EditorProfileView />} />
+            <Route path="/posts/criar" children={<PostCreateView />} />
+
+            // Eliminar da aplicação - inicio - deixado apenas como exemplo //
+            <Route path="/contato" children={<Contact />} />
+            <Route path="/usuario/:userId" children={<UserView />} />
+            <Route path="/calc/:a/:b" children={<CalcView />} />
+            // Eliminar da aplicação - fim //
+
+            <Route> <NotFound404 /> </Route>
+
+            */ }
+ 
+
+
+          { /* React Router - Versão >= 6 */ }
+          
+            { /*
+            <Route path={'/'} element={<Home /> } />
+            <Route path={'/contato'} element ={<Contact />} />
+            <Route element={<NotFound404 />} /> */}
+
+            {/* <Route path={'/home'} element={<Home />}></Route>
+            <Route path={'/contato'} element={<Contact />} ></Route> 
+            <Route element={<NotFound404 />} ></Route> */}
+
+
 
         </Switch>
+        {/* </NavBar> */}
       </BrowserRouter>
 
     {/* </div> */}
