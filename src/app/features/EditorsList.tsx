@@ -1,7 +1,11 @@
 import styled from "styled-components";
+import { User } from "../../@types/User";
 import Profile from "../components/Profile";
 
 export default function EditorsList() {
+
+  //const editors: AlgaNews.components['schemas']['EditorSummary'][] = []
+  const editors: User.EditorSummary[] = []
 
   return <EditorsListWrapper>
     <Profile editorId={1} name="Daniel Bonifácio" description="Editor a 8 anos" />
