@@ -15,7 +15,6 @@ import GlobalStyles from './core/globalStyles'
 import EditorsListView from './app/views/EditorsList.view';
 import PostCreateView from './app/views/PostCreate.view';
 import EditorProfileView from './app/views/EditorProfile.view';
-import http from './core/http';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -104,26 +103,6 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-
-async function getDataFromApi() {
-
-  try {
-    
-    //const response = await http.get('http://localhost:8080/posts')
-    const response = await http.get('/posts')
-    const post = response.data
-    console.log(post)
-
-  } catch (error) {
-
-    console.log('Houve um erro: ', error.message);
-
-  }
-
-}
-
-getDataFromApi();
 
 
 // If you want to start measuring performance in your app, pass a function
