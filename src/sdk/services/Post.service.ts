@@ -18,6 +18,14 @@ class PostService extends Service {
             .then(this.getData)  // Simplificacao da linha anterior
     }
 
+    
+    static insertNewPost(post: Post.Input) {
+        return this.Http
+            .post<Post.Detailed>('/posts', post)
+            .then(this.getData)
+    }
+
+
 
 } 
 

@@ -1,11 +1,19 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import { User } from "../../sdk/@types/User";
+import PostService from "../../sdk/services/Post.service";
+import ConfirmStories from "../../stories/Confirm.stories";
 import Profile from "../components/Profile";
 
 export default function EditorsList() {
 
   //const editors: AlgaNews.components['schemas']['EditorSummary'][] = []
   const editors: User.EditorSummary[] = []
+
+  useEffect(() => {
+    const posts = PostService.getAllPosts()
+    console.log(posts)
+  },[])
 
   return <EditorsListWrapper>
     <Profile editorId={1} name="Daniel Bonifácio" description="Editor a 8 anos" />
