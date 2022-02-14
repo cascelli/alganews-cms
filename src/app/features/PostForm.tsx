@@ -16,6 +16,7 @@ export default function PostForm() {
   const [tags, setTags] = useState<Tag[]>([])
   const [body, setBody] = useState('')
   const [title, setTitle] = useState('')
+  const [imageUrl, setImageUrl] = useState('')
 
   //function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
   async function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -26,7 +27,7 @@ export default function PostForm() {
       body,
       title,
       tags: tags.map(tag => tag.text),
-      imageUrl: ''
+      imageUrl,
     }
 
     const insertedPost = await PostService.insertNewPost(newPost) // importante usar await (Async Await) 
@@ -46,7 +47,10 @@ export default function PostForm() {
       placeholder="e.g.: Como fiquei rico aprendendo React"
     />
 
-    <ImageUpload label="Thumbnail do post" />
+    <ImageUpload 
+      //onImageUpload={(imageUrl) => setImageUrl(imageUrl)}
+      onImageUpload={setImageUrl}
+      label="Thumbnail do post" />
 
     <MarkdownEditor onChange={ setBody } />
 
