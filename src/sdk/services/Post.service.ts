@@ -1,11 +1,16 @@
 import { Post } from "../@types";
 import Service from "../Service";
+import generateQueryString from "../utils/generateQueryString";
 
 class PostService extends Service {
 
-    static getAllPosts() {
+    static getAllPosts(search: Post.Query) {
+
+        const queryString = generateQueryString(search)
+        console.log(queryString) // Mostra a queryString
+
         return this.Http
-            .get<Post.Paginated>('/posts')
+            .get<Post.Paginated>('/posts'.concat(queryString)) // concatena a uri posts com a queryString
             //.then(res => res.data)
             .then(this.getData) // Simplificacao da linha anterior
     }

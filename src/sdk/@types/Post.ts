@@ -10,4 +10,13 @@ export namespace Post {
     export type WithEarnings = AlgaNews.components['schemas']['PostWithEarnings']
 
     //export type Earnings = AlgaNews.components['schemas']['PostEarnings']
+
+
+    export type Query = {
+        editorId?: number
+        page?: number
+        size?: number
+        showAll?: boolean 
+        sort?: [keyof Summary, 'asc' | 'desc'] // o ordenamento pode ser uma chave de PostSummary (keyof Summary), ascendente ou descendente
+    }
 }
