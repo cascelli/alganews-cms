@@ -1,6 +1,7 @@
 import { mdiUpload } from '@mdi/js';
 import Icon from '@mdi/react';
 import { ChangeEvent, useState } from 'react';
+import FileService from '../../../sdk/services/File.service';
 import Button from '../Button/Button';
 import * as IU from './ImageUpload.styles'
 
@@ -13,15 +14,24 @@ function ImageUpload( props: ImageUploadProps) {
   const [filePreview, setFilePreview] = useState<string | null>(null)
 
   function handleChange(e: ChangeEvent<HTMLInputElement> ) {
+
     const file = e.target.files![0]
+
     if (file) {
+
       //console.log(file)
       const reader = new FileReader()
 
-      reader.addEventListener('load', e => {
-        setFilePreview(String(e.target?.result))
+      reader.addEventListener('load', async e => {
+
+        setFilePreview(String(e.target?.result));
+
+        const imageUrl = await FileService.upload(file);
+
+        console.log(imageUrl)
+
       })
-      reader.readAsDataURL(file) 
+      reader.readAsDataURL(file)
     }
   }
 
