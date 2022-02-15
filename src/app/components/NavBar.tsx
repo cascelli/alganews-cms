@@ -50,8 +50,8 @@ export default function NavBar() {
       <Item><NavLink exact to="/editores">Editores</NavLink></Item>
       <Item><NavLink exact to="/posts/criar">Novo post</NavLink></Item>
 
-      <Item><NavLink exact to="/contato">Contato</NavLink></Item>
-      <Item><NavLink exact to="/calc/1/2">Calculo - 1 + 2</NavLink></Item>
+      {/* <Item><NavLink exact to="/contato">Contato</NavLink></Item> */}
+      {/* <Item><NavLink exact to="/calc/1/2">Calculo - 1 + 2</NavLink></Item> */}
 
     {/* </ul> */}
     </List>

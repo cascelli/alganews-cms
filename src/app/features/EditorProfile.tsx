@@ -1,5 +1,15 @@
 import { transparentize } from "polished";
+import { useEffect, useState } from "react";
+
+// "You must use React >= 16.8 in order to use useParams()"
+//import { useParams } from "react-router";
+// Substituido import acima
+import { useParams } from "react-router-dom";
+
 import styled from "styled-components";
+import { User } from "../../sdk/@types";
+import UserService from "../../sdk/services/User.service";
+import getEditorDescription from "../../sdk/utils/getEditorDescription";
 import FieldDescriptor from "../components/FieldDescriptor/FieldDescriptor";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
 import ValueDescriptor from "../components/ValueDescriptor/ValueDescriptor";
@@ -13,11 +23,27 @@ function EditorProfile (props: EditorProfileProps) {
   // Descomentar para forçar erro e teste do ErrorBoundary
   //throw new Error("Houve um erro ao renderizar o componente EditorProfile");
 
+  const params = useParams<{id: string }>()
+
+  const [editor, setEditor] = useState<User.EditorDetailed>()
+
+  useEffect(() => {
+    UserService
+      .getExistingEditor(Number(params.id))
+      //.then(editor => setEditor(editor))
+      .then(setEditor) // Simplificacao da linha anterior
+  }, [params.id])
+
+  // Verifica se existe editor e retorna null se nao existir
+  // Necessario para evitar erro no editor do bloco EditorHeadline mais abaixo
+  if (!editor) 
+    return null
+
   return <EditorProfileWrapper>
     <EditorHeadline>
-      <Avatar src={'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80'} />
-      <Name>Daniel Bonifacio</Name>
-      <Description>Editor há 5 anos</Description>
+      <Avatar src={editor.avatarUrls.small} />
+      <Name>{editor.name}</Name>
+      <Description>{getEditorDescription(new Date(editor.createdAt))}</Description>
     </EditorHeadline>
 
     <Divisor />
@@ -25,17 +51,23 @@ function EditorProfile (props: EditorProfileProps) {
     <EditorFeatures>
 
       <PersonalInfo>
-        <Biography>{'Ana Castillo é especialista em recrutamento de desenvolvedores e ama escrever dicas para ajudar os devs a encontrarem a vaga certa para elas. Atualmente tem uma empresa de Recruitment e é redatora no alga content'}</Biography>
+        <Biography>{editor.bio}</Biography>
         <Skills>
-          <ProgressBar progress={96} title={'JavaScript'} theme={'primary'} />
-          <ProgressBar progress={86} title={'React'} theme={'primary'} />
-          <ProgressBar progress={67} title={'Node'} theme={'primary'} />
+          {
+            editor.skills?.map(skill => {
+              return <ProgressBar 
+                progress={skill.percentage}
+                title={skill.name}
+                theme={'primary'}
+              />
+            })
+          }
         </Skills>
       </PersonalInfo>
 
       <ContactInfo>
-        <FieldDescriptor field={'Cidade'} value={'Vila Velha'} />
-        <FieldDescriptor field={'Estado'} value={'Espírito Santo'} />
+        <FieldDescriptor field={'Cidade'} value={editor.location.city} />
+        <FieldDescriptor field={'Estado'} value={editor.location.state} />
 
         {
           !props.hidePersonalData && <>

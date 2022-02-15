@@ -6,10 +6,10 @@ import './core/imports.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import NotFound404 from './app/views/NotFound404.view';
-import Contact from './app/views/Contact.view';
+//import Contact from './app/views/Contact.view';
 import Home from './app/views/Home.view';
-import UserView from './app/views/User.view';
-import CalcView from './app/views/Calc.view';
+//import UserView from './app/views/User.view';
+//import CalcView from './app/views/Calc.view';
 //import NavBar from './app/components/NavBar';
 import GlobalStyles from './core/globalStyles'
 import EditorsListView from './app/views/EditorsList.view';
@@ -38,20 +38,26 @@ ReactDOM.render(
                - Problemas com versões mais novas : parâmetro exact - implementação alternativa não funcional */ }
 
             {/* <Route path="/home" exact> <Home /> </Route> */}
-            <Route path="/" exact> {<Home />} </Route>
+            {/* <Route path="/" exact> {<Home />} </Route> */}
+            <Route path="/" exact component={Home} />
 
-            <Route path="/editores" exact> <EditorsListView /> </Route>
-            <Route path="/editores/:id" > <EditorProfileView /> </Route>
+            {/* <Route path="/editores" exact> <EditorsListView /> </Route> */}
+            <Route path="/editores" exact component={EditorsListView} />
 
-            <Route path="/posts/criar" > <PostCreateView /> </Route>
+            {/* <Route path="/editores/:id" > <EditorProfileView /> </Route> */}
+            <Route path="/editores/:id" exact component={EditorProfileView} />
+
+            {/* <Route path="/posts/criar" > <PostCreateView /> </Route> */}
+            <Route path="/posts/criar" exact component={PostCreateView} />
 
             { /* Eliminar da aplicação - inicio - deixado apenas como exemplo */}
-            <Route path="/contato" > <Contact /> </Route>
-            <Route path="/usuario/:userId" > <UserView /> </Route>
-            <Route path="/calc/:a/:b" > <CalcView /> </Route>
+            {/* <Route path="/contato" > <Contact /> </Route> */}
+            {/* <Route path="/usuario/:userId" > <UserView /> </Route> */}
+            {/* <Route path="/calc/:a/:b" > <CalcView /> </Route> */}
             { /* Eliminar da aplicação - fim */}
 
-            <Route> <NotFound404 /> </Route>
+            {/* <Route> <NotFound404 /> </Route> */}
+            <Route component={NotFound404} />
 
 
 
