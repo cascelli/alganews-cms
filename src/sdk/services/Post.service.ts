@@ -25,6 +25,9 @@ class PostService extends Service {
 
     
     static insertNewPost(post: Post.Input) {
+
+        //console.log('=> post: ', post)
+
         return this.Http
             .post<Post.Detailed>('/posts', post)
             .then(this.getData)

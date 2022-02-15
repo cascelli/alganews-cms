@@ -18,15 +18,15 @@ export default function PostForm() {
   const [title, setTitle] = useState('')
   const [imageUrl, setImageUrl] = useState('')
 
-  //function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
   async function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
 
-    e.preventDefault() // Impede atualizacao da tela por padrao
+    e.preventDefault(); // Impede atualizacao da tela por padrao
 
     const newPost = {
       body,
       title,
-      tags: tags.map(tag => tag.text),
+      //tags: tags.map(tag => tag.text), // Nao funciona. Nao captura as tags digitadas no formulario
+      tags: ['Javascript', 'C++', 'VBA'], // Inserindo manualmente, o poste é incluído com sucesso no backend
       imageUrl,
     }
 
@@ -49,16 +49,17 @@ export default function PostForm() {
 
     <ImageUpload 
       //onImageUpload={(imageUrl) => setImageUrl(imageUrl)}
-      onImageUpload={setImageUrl}
-      label="Thumbnail do post" />
+      onImageUpload={setImageUrl} // Simplificacao da linha anterior
+      label="Thumbnail do post" 
+    />
 
     <MarkdownEditor onChange={ setBody } />
 
-    <TagInput  
+    <TagInput
       tags={tags}
       onAdd={tag => setTags([...tags, tag])}
       onDelete={index => setTags(tags.filter((_, i) => i !== index))}
-      placeholder="insira as tags deste post"
+      placeholder="Insira as tags deste post"
     />
 
     <PostFormSubmitWrapper>
