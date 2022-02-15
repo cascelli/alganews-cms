@@ -1,5 +1,3 @@
-import { URLSearchParams } from "url"
-
 function generateQueryString(
     params: {[key: string]: string | number | boolean | string[] | undefined}
 ): string {
