@@ -3,9 +3,10 @@ import Icon from '@mdi/react';
 import { ChangeEvent, useState } from 'react';
 import FileService from '../../../sdk/services/File.service';
 import Button from '../Button/Button';
+import Loading from '../Loading'
 import * as IU from './ImageUpload.styles'
 
-export interface ImageUploadProps {
+export interface ImageUploadProps { 
   label: string
   onImageUpload: (imageUrl: string) => any
 }
@@ -13,6 +14,7 @@ export interface ImageUploadProps {
 function ImageUpload( props: ImageUploadProps) {
 
   const [filePreview, setFilePreview] = useState<string | null>(null)
+  const [pushing, setPushing] = useState(false)
 
   function handleChange(e: ChangeEvent<HTMLInputElement> ) {
 
@@ -25,12 +27,15 @@ function ImageUpload( props: ImageUploadProps) {
 
       reader.addEventListener('load', async e => {
 
-        setFilePreview(String(e.target?.result));
-
-        const imageUrl = await FileService.upload(file);
-
-        //console.log(imageUrl)
-        props.onImageUpload(imageUrl)
+        try {
+          setPushing(true)
+          setFilePreview(String(e.target?.result));
+          const imageUrl = await FileService.upload(file)
+          //console.log(imageUrl)
+          props.onImageUpload(imageUrl)
+        } finally {
+          setPushing(false)
+        }
 
       })
       reader.readAsDataURL(file)
@@ -41,20 +46,19 @@ function ImageUpload( props: ImageUploadProps) {
     //return <img src={filePreview} alt={'sdadass'} />
 
     return <IU.ImagePreviewWrapper>
+      <Loading show={pushing} />
       <IU.ImagePreview preview={filePreview}>
-
         <Button 
           variant={'primary'}
           label={'Remover imagem'}
-
           onClick={() => setFilePreview(null)}
         />
-
       </IU.ImagePreview>
     </IU.ImagePreviewWrapper>
   }
 
   return <IU.Wrapper>
+    <Loading show={pushing} />
     <IU.Label>
       <Icon 
         size={'24px'}
