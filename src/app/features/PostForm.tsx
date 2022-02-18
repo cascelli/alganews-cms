@@ -7,6 +7,7 @@ import PostService from "../../sdk/services/Post.service";
 import Button from "../components/Button/Button";
 import ImageUpload from "../components/ImageUpload";
 import Input from "../components/Input/Input";
+import Loading from "../components/Loading";
 import MarkdownEditor from "../components/MarkdownEditor";
 import TagInput from "../components/TagInput";
 import WordPriceCounter from "../components/WordPriceCounter";
@@ -17,28 +18,45 @@ export default function PostForm() {
   const [body, setBody] = useState('')
   const [title, setTitle] = useState('')
   const [imageUrl, setImageUrl] = useState('')
+  const [publishing, setPublishing] = useState(false)
 
   async function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
 
     e.preventDefault(); // Impede atualizacao da tela por padrao
 
-    const newPost = {
-      body,
-      title,
-      //tags: tags.map(tag => tag.text), // Nao funciona. Nao captura as tags digitadas no formulario
-      tags: ['Javascript', 'C++', 'VBA'], // Inserindo manualmente, o poste é incluído com sucesso no backend
-      imageUrl,
+    try {
+
+      setPublishing(true) // Habilita a visualizacao do componente de overlasy indicativo de loading
+  
+      const newPost = {
+        body,
+        title,
+        //tags: tags.map(tag => tag.text), // Nao funciona. Nao captura as tags digitadas no formulario
+        tags: ['Javascript', 'C++', 'VBA'], // Inserindo manualmente, o poste é incluído com sucesso no backend
+        imageUrl,
+      }
+  
+      const insertedPost = await PostService // importante usar await (Async Await) 
+        .insertNewPost(newPost)
+    
+      info({
+        title: 'Post salvo com sucesso',
+        description: 'Você acabou de criar o post com o id ' + insertedPost.id
+      })
+
+    } finally {
+
+      setPublishing(false) // Desabilita a visualizacao do componente de overlasy indicativo de loading
+  
     }
 
-    const insertedPost = await PostService.insertNewPost(newPost) // importante usar await (Async Await) 
 
-    info({
-      title: 'Post salvo com sucesso',
-      description: 'Você acabou de criar o post com o id ' + insertedPost.id
-    })
+
   }
 
   return <PostFormWrapper onSubmit={ handleFormSubmit }>
+
+    <Loading show={publishing} /> 
 
     <Input 
       label="Título" 
