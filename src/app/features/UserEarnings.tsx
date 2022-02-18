@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton"
 import styled from "styled-components";
 import { User } from "../../sdk/@types";
 import UserService from "../../sdk/services/User.service";
@@ -23,7 +24,14 @@ export default function UserEarnings() {
     throw error
 
   if (!user)
-    return null // garante que usuario nao será null na renderizacao
+    //return null // garante que usuario nao será null na renderizacao
+    return <UserEarningsWrapper style={{ height: 123 }}>
+      <Skeleton height={40} width={150} />
+      <Skeleton height={40} width={150} />
+      <Skeleton height={40} width={150} />
+      <Skeleton height={40} width={150} />
+    </UserEarningsWrapper>
+    
 
   return <UserEarningsWrapper>
     <ValueDescriptor color="primary" description="Ganhos no mês" value={user.metrics.monthlyEarnings} isCurrency />

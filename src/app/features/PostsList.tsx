@@ -1,4 +1,5 @@
 import { mdiOpenInNew } from "@mdi/js"
+import Skeleton from "react-loading-skeleton"
 import Icon from "@mdi/react"
 import { format } from "date-fns"
 import { useEffect, useMemo, useState } from "react"
@@ -6,20 +7,6 @@ import { Column, useTable } from "react-table"
 import { Post } from "../../sdk/@types"
 import PostService from "../../sdk/services/Post.service"
 import Table from "../components/Table/Table"
-
-// type IPost = {
-//   id: number
-//   title: string
-//   views: number
-//   author: {
-//     name: string
-//     avatar: string
-//   }
-//   conversions: {
-//     thousands: number
-//     percentage: number
-//   }
-// }
 
 export default function PostsList() {
 
@@ -155,6 +142,18 @@ export default function PostsList() {
   
   
   const instance = useTable<Post.Summary>({ data: posts?.content || [], columns })
+
+  if(!posts)
+    return <div>
+      <Skeleton height={32} />
+      <Skeleton height={40} />
+      <Skeleton height={40} />
+      <Skeleton height={40} />
+      <Skeleton height={40} />
+      <Skeleton height={40} />
+      <Skeleton height={40} />
+      <Skeleton height={40} />
+    </div>
 
   return <Table 
     instance = { instance }
