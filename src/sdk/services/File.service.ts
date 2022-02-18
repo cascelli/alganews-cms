@@ -1,6 +1,6 @@
 import Service from "../Service";
 import { File } from "../@types";
-import { uuid } from 'uuidv4';
+import { v4 as uuid } from 'uuid'; // Importa a versao 4 do modulo uuid e renomeia para uuid para manter a compatibilidade com o modulo uuidv4 anterior
 
 
 class FileService extends Service {

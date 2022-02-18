@@ -7,19 +7,19 @@ import { Post } from "../../sdk/@types"
 import PostService from "../../sdk/services/Post.service"
 import Table from "../components/Table/Table"
 
-type IPost = {
-  id: number
-  title: string
-  views: number
-  author: {
-    name: string
-    avatar: string
-  }
-  conversions: {
-    thousands: number
-    percentage: number
-  }
-}
+// type IPost = {
+//   id: number
+//   title: string
+//   views: number
+//   author: {
+//     name: string
+//     avatar: string
+//   }
+//   conversions: {
+//     thousands: number
+//     percentage: number
+//   }
+// }
 
 export default function PostsList() {
 
