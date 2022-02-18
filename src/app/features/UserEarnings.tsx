@@ -6,13 +6,21 @@ import ValueDescriptor from "../components/ValueDescriptor/ValueDescriptor";
 
 export default function UserEarnings() {
 
+  const [error,setError] = useState<Error>()
+  
   const [user, setUser] = useState<User.Detailed>()
 
   useEffect(() => {
     UserService
       .getDetailedUser(7) // ToDo : Usando usuario fixo por enquanto até lidar com segurança
       .then(setUser)
+      .catch(error => { // Captura erro, quando houver
+        setError(new Error(error.message))
+      })
   }, [])
+
+  if(error) // Lanca o erro, quando houver
+    throw error
 
   if (!user)
     return null // garante que usuario nao será null na renderizacao

@@ -6,6 +6,8 @@ import CircleChart from "../components/CircleChart";
 
 export default function UserTopTags() {
 
+  const [error,setError] = useState<Error>()
+
   const [topTags, setTopTags] = useState<Metric.EditorTagRatio>([])
 
   // Faz a chamada Http de fato
@@ -13,8 +15,13 @@ export default function UserTopTags() {
     MetricService
       .getTop3Tags()    // Chama servico
       .then(setTopTags) // Quando for finalizado, passa o valor para topTags
+      .catch(error => { // Captura erro, quando houver
+        setError(new Error(error.message))
+      })
   }, [])
  
+  if(error) // Lanca o erro, quando houver
+    throw error
 
   return <UserTopTagsWrapper>
 

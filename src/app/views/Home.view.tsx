@@ -1,4 +1,5 @@
 import usePageTitle from "../../core/Hooks/usePageTitle"
+import ErrorBoundary from "../components/ErrorBoundary"
 import PostsList from "../features/PostsList"
 import UserEarnings from "../features/UserEarnings"
 import UserPerformance from "../features/UserPerformance"
@@ -10,13 +11,24 @@ export default function Home() {
   return <DefaultLayout>
 
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center', gap: 32 }}>
-      <UserTopTags />
-      <UserEarnings />
+
+      <ErrorBoundary component={'top tags'}>
+        <UserTopTags />
+      </ErrorBoundary>    
+
+      <ErrorBoundary component={'earnings'}>
+        <UserEarnings />
+      </ErrorBoundary>    
+      
     </div>
 
-    <UserPerformance />
+    <ErrorBoundary component={'performance'}>
+      <UserPerformance />
+    </ErrorBoundary>
 
-    <PostsList />
+    <ErrorBoundary component={'lista de posts'}>
+      <PostsList />
+    </ErrorBoundary>
  
   </DefaultLayout>
   

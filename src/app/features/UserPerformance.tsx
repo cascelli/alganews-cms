@@ -7,6 +7,8 @@ import Chart, { ChartProps } from "../components/Chart/Chart"
 
 export default function UserPerformance() {
 
+  const [error,setError] = useState<Error>()
+
   const [editorEarnings, setEditorEarnings] = useState<ChartProps['data']>()
 
   useEffect(() => {
@@ -14,7 +16,13 @@ export default function UserPerformance() {
       .getEditorMonthlyEarnings()
       .then(transformEditorMonthlyEarningsIntoChartJs)
       .then(setEditorEarnings)
+      .catch(error => { // Captura erro, quando houver
+        setError(new Error(error.message))
+      })
   }, [])
+
+  if(error) // Lanca o erro, quando houver
+    throw error
 
   if(!editorEarnings)
     return null

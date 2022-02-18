@@ -23,6 +23,8 @@ import Table from "../components/Table/Table"
 
 export default function PostsList() {
 
+  const [error,setError] = useState<Error>()
+
   const [posts, setPosts] = useState<Post.Paginated>()
   
   useEffect(() => {
@@ -35,9 +37,14 @@ export default function PostsList() {
         sort: ['createdAt', 'desc'],
       })
       .then(setPosts)
+      .catch(error => { // Captura erro, quando houver
+        setError(new Error(error.message))
+      })
 
   }, [])
   
+  if(error) // Lanca o erro, quando houver
+    throw error
   
   const columns = useMemo<Column<Post.Summary>[]>(
   
