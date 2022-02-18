@@ -19,12 +19,22 @@ export default function Home() {
       <ErrorBoundary component={'earnings'}>
         <UserEarnings />
       </ErrorBoundary>    
-      
+
     </div>
 
-    <ErrorBoundary component={'performance'}>
+    {/* <ErrorBoundary component={'performance'}> */}
+
+    {/* 
+        Forma alternativa e mais eficiente de implementação do ErrorBoundary em um componente :
+
+        Usando HOC (Higher Order Component) para inserir o ErrorBoundary 
+        automaticamente no mesmo sem ser necessário delimitá-lo com
+        o bloco <ErrorBoundary></ErrorBoundary>
+
+    */}
+
       <UserPerformance />
-    </ErrorBoundary>
+    {/* </ErrorBoundary> */}
 
     <ErrorBoundary component={'lista de posts'}>
       <PostsList />
