@@ -27,7 +27,7 @@ export default function PostsList() {
       .getAllPosts({
         //page: 0,
         page,
-        size: 7,
+        size: 3,
         showAll: true,
         sort: ['createdAt', 'desc'],
       })
