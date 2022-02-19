@@ -7,18 +7,26 @@ import { Column, usePagination, useTable } from "react-table"
 import { Post } from "../../sdk/@types"
 import PostService from "../../sdk/services/Post.service"
 import Table from "../components/Table/Table"
+import Loading from "../components/Loading"
 
 export default function PostsList() {
 
   const [error,setError] = useState<Error>()
 
   const [posts, setPosts] = useState<Post.Paginated>()
+
+  const [page, setPage] = useState(0)
+
+  const [loading, setLoading] = useState(false)
   
   useEffect(() => {
 
+    setLoading(true)
+
     PostService
       .getAllPosts({
-        page: 0,
+        //page: 0,
+        page,
         size: 7,
         showAll: true,
         sort: ['createdAt', 'desc'],
@@ -26,9 +34,12 @@ export default function PostsList() {
       .then(setPosts)
       .catch(error => { // Captura erro, quando houver
         setError(new Error(error.message))
+      })  
+      .finally(() => {
+        setLoading(false)
       })
 
-  }, [])
+  }, [page])
   
   if(error) // Lanca o erro, quando houver
     throw error
@@ -164,8 +175,14 @@ export default function PostsList() {
       <Skeleton height={40} />
     </div>
 
-  return <Table 
-    instance = { instance }
-  />
+  return <>
+    <Loading show={loading}/>
+    
+    <Table 
+      instance = { instance }
+      //onPaginate={page => console.log(page)}
+      onPaginate={setPage}
+    />
+  </>
 
 }

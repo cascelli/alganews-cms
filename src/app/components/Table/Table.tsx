@@ -5,6 +5,7 @@
 //import { Column, useRowState, useTable } from 'react-table' // acrescentar pacote : yarn add -D @types/react-table
 
 import { transparentize } from 'polished'
+import { useEffect } from 'react'
 import { TableInstance } from 'react-table'
 import Button from '../Button/Button'
 import NoData from '../NoData/NoData'
@@ -19,7 +20,16 @@ type Data = {
 }
 */
 
-export default function Table<T extends Object>({ instance }: { instance: TableInstance<T> }) {
+interface TableProps<T extends Object> {
+   instance: TableInstance<T> 
+   onPaginate?: (newPage: number) => any
+}
+
+//export default function Table<T extends Object>({ instance }: { instance: TableInstance<T> }) {
+export default function Table<T extends Object>({ 
+  instance,
+  onPaginate
+}: TableProps<T>) {
 
   /*
   const data = useMemo<Data[]>(
@@ -148,6 +158,11 @@ export default function Table<T extends Object>({ instance }: { instance: TableI
 
   //} = useTable<Data>({ data, columns })
   } = instance
+
+  useEffect(() => {
+    onPaginate && 
+      onPaginate(pageIndex)
+  }, [pageIndex, onPaginate])
 
 
   return(
