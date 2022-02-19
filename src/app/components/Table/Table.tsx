@@ -4,14 +4,14 @@
 //import { useMemo } from "react";  // acrescentar pacote : yarn add react-table
 //import { Column, useRowState, useTable } from 'react-table' // acrescentar pacote : yarn add -D @types/react-table
 
-import { mdiChevronLeft, mdiChevronRight } from '@mdi/js'
-import Icon from '@mdi/react'
 import { transparentize } from 'polished'
-import { useEffect } from 'react'
-import ReactPaginate from 'react-paginate'
 import { TableInstance } from 'react-table'
 import NoData from '../NoData/NoData'
 import * as T from './Table.styles'
+import { useEffect } from 'react'
+import ReactPaginate from 'react-paginate'
+import Icon from '@mdi/react'
+import { mdiChevronLeft, mdiChevronRight } from '@mdi/js'
 
 /*
 type Data = {
