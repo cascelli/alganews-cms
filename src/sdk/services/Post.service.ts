@@ -7,7 +7,7 @@ class PostService extends Service {
     static getAllPosts(search: Post.Query) {
 
         const queryString = generateQueryString(search)
-        console.log(queryString) // Mostra a queryString
+        //console.log(queryString) // Mostra a queryString
 
         return this.Http
             .get<Post.Paginated>('/posts'.concat(queryString)) // concatena a uri posts com a queryString
@@ -30,6 +30,13 @@ class PostService extends Service {
 
         return this.Http
             .post<Post.Detailed>('/posts', post)
+            .then(this.getData)
+    }
+
+
+    static publishExistingPost(postId: number) {
+        return this.Http
+            .put<{}>(`/posts/${postId}/publishing`)
             .then(this.getData)
     }
 
