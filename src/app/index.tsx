@@ -6,6 +6,7 @@ import EditorsListView from "./views/EditorsList.view"
 import Home from "./views/Home.view"
 import NotFound404 from "./views/NotFound404.view"
 import PostCreateView from "./views/PostCreate.view"
+import PostEditView from "./views/PostEdit.view"
 
 export default function App() {
 
@@ -45,6 +46,9 @@ export default function App() {
 
           {/* <Route path="/posts/criar" > <PostCreateView /> </Route> */}
           <Route path="/posts/criar" exact component={PostCreateView} />
+
+          {/* <Route path="/posts/editar/:id > <PostEditView /> </Route> */}
+          <Route path="/posts/editar/:id" exact component={PostEditView} />
 
           { /* Eliminar da aplicação - inicio - deixado apenas como exemplo */}
           {/* <Route path="/contato" > <Contact /> </Route> */}

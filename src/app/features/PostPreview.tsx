@@ -10,6 +10,7 @@ import Loading from "../components/Loading";
 import info from "../../core/utils/info";
 import confirm from "../../core/utils/confirm";
 import modal from "../../core/utils/modal";
+import { useHistory } from "react-router-dom";
 
 interface PostPreviewProps {
   postId: number
@@ -17,6 +18,7 @@ interface PostPreviewProps {
 
 function PostPreview (props: PostPreviewProps) {
 
+  const history = useHistory()
   const [post, setPost] = useState<Post.Detailed>() 
   const [loading, setLoading] = useState(false)
 
@@ -74,6 +76,7 @@ function PostPreview (props: PostPreviewProps) {
           variant={'primary'}
           label={'Editar'}
           disabled={ post.published } // Desabilita botao se published for true
+          onClick={() => window.location.pathname = `/posts/editar/${props.postId}` }
         />
       </PostPreviewActions>
     </PostPreviewHeading>
