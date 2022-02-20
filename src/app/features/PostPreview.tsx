@@ -1,6 +1,11 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import withBoundary from "../../core/hoc/withBoundary";
+import { Post } from "../../sdk/@types";
+import PostService from "../../sdk/services/Post.service";
 import Button from "../components/Button/Button";
+import Loading from "../components/Loading";
 import MarkdownEditor from "../components/MarkdownEditor";
 
 interface PostPreviewProps {
@@ -8,11 +13,31 @@ interface PostPreviewProps {
 }
 
 function PostPreview (props: PostPreviewProps) {
+
+  const [post, setPost] = useState<Post.Detailed>() 
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+
+    setLoading(true)
+
+    PostService
+      .getExistingPost(props.postId)
+      .then(setPost)
+      .finally(() => setLoading(false))
+  }, [props.postId])
+
+  if(loading)
+    return <Loading show />
+
+  if(!post)
+    return null
+
   return <PostPreviewWrapper>
 
     <PostPreviewHeading>
       <PostPreviewTitle>
-        {'Como fiquei rico aprendendo React'}
+        { post.title }
       </PostPreviewTitle>
       <PostPreviewActions>
         <Button
@@ -27,13 +52,13 @@ function PostPreview (props: PostPreviewProps) {
     </PostPreviewHeading>
 
     <PostPreviewImage
-      src={'https://images.unsplash.com/photo-1499343628900-545067aef5a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'}
+      src={ post.imageUrls.medium }
     />
 
     <PostPreviewContent>
       <MarkdownEditor
         readOnly
-        value={'Olá mundo!\n- Esta é\n- uma lista\n- uma lista\n- uma lista\n- uma lista\n'}
+        value={ post.body }
       />
     </PostPreviewContent>
 
