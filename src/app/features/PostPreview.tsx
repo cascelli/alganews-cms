@@ -43,10 +43,12 @@ function PostPreview (props: PostPreviewProps) {
         <Button
           variant={'danger'}
           label={'Publicar'}
+          disabled={ post.published } // Desabilita botao se published for true
         />
         <Button
           variant={'primary'}
           label={'Editar'}
+          disabled={ post.published } // Desabilita botao se published for true
         />
       </PostPreviewActions>
     </PostPreviewHeading>
