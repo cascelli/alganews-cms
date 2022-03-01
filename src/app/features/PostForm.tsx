@@ -34,8 +34,8 @@ export default function PostForm(props: PostFormProps) {
       body,
       title,
       imageUrl,
-      //tags: tags.map(tag => tag.text) // Nao funciona. Nao captura as tags digitadas no formulario
-      tags: ['Javascript', 'C++', 'VBA'] // Inserindo manualmente, o poste é incluído com sucesso no backend
+      tags: tags.map(tag => tag.text) // Nao funciona. Nao captura as tags digitadas no formulario
+      //tags: ['Javascript', 'C++', 'VBA'] // Inserindo manualmente, o poste é incluído com sucesso no backend
     }
 
     //const insertedPost = await PostService // importante usar await (Async Await) 
