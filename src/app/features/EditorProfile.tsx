@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 // "You must use React >= 16.8 in order to use useParams()"
 //import { useParams } from "react-router";
 // Substituido import acima
-import { useParams } from "react-router-dom";
+//import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 
 import styled from "styled-components";
 import { User } from "../../sdk/@types";
@@ -23,7 +24,7 @@ function EditorProfile (props: EditorProfileProps) {
   // Descomentar para forçar erro e teste do ErrorBoundary
   //throw new Error("Houve um erro ao renderizar o componente EditorProfile");
 
-  const params = useParams<{id: string }>()
+  const params = useParams<{ id: string }>()
 
   const [editor, setEditor] = useState<User.EditorDetailed>()
 
@@ -54,9 +55,8 @@ function EditorProfile (props: EditorProfileProps) {
         <Biography>{editor.bio}</Biography>
         <Skills>
           {
-            editor.skills?.map((skill,i) => {
+            editor.skills?.map(skill => {
               return <ProgressBar 
-                key={i}
                 progress={skill.percentage}
                 title={skill.name}
                 theme={'primary'}
@@ -100,6 +100,7 @@ const EditorProfileWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+
   padding: 24px;
   border: 1px solid ${transparentize(0.9, '#274060')};
 `
@@ -158,9 +159,11 @@ const ContactInfo = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 16px 0;
+
   >* {
     width: 100%;
   }
+
   &>:nth-child(1),
   &>:nth-child(2) {
     width: 50%;

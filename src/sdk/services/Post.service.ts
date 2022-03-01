@@ -26,7 +26,7 @@ class PostService extends Service {
     
     static insertNewPost(post: Post.Input) {
 
-        //console.log('=> post: ', post)
+        //console.log('Servico InsertNewPost => post.tags: ', post.tags)
 
         return this.Http
             .post<Post.Detailed>('/posts', post)
@@ -42,6 +42,9 @@ class PostService extends Service {
 
 
     static updateExistingPost(postId: number, post: Post.Input) {
+
+        //console.log('Servico UpdateExistingPost => post.tags: ', post.tags)
+
         return this.Http
             .put<Post.Detailed>(`/posts/${postId}`, post)
             .then(this.getData)

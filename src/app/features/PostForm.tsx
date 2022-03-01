@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+//import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Tag } from "react-tag-input";
 import styled from "styled-components";
@@ -32,9 +33,9 @@ export default function PostForm(props: PostFormProps) {
     const newPost = {
       body,
       title,
-      //tags: tags.map(tag => tag.text), // Nao funciona. Nao captura as tags digitadas no formulario
-      tags: ['Javascript', 'C++', 'VBA'], // Inserindo manualmente, o poste é incluído com sucesso no backend
       imageUrl,
+      //tags: tags.map(tag => tag.text) // Nao funciona. Nao captura as tags digitadas no formulario
+      tags: ['Javascript', 'C++', 'VBA'] // Inserindo manualmente, o poste é incluído com sucesso no backend
     }
 
     //const insertedPost = await PostService // importante usar await (Async Await) 
@@ -54,10 +55,12 @@ export default function PostForm(props: PostFormProps) {
     const newPost = {
       body,
       title,
-      //tags: tags.map(tag => tag.text), // Nao funciona. Nao captura as tags digitadas no formulario
-      tags: ['Javascript', 'C++', 'VBA'], // Inserindo manualmente, o poste é incluído com sucesso no backend
       imageUrl,
+      tags: tags.map(tag => tag.text), // Nao funciona. Nao captura as tags digitadas no formulario
+      //tags: ['Javascript', 'C++', 'VBA'] // Inserindo manualmente, o poste é incluído com sucesso no backend
     }
+
+    // console.log('Chamando servico de atualizacao de post')
 
     await PostService.updateExistingPost(postId, newPost)
 
@@ -86,8 +89,6 @@ export default function PostForm(props: PostFormProps) {
       setPublishing(false) // Desabilita a visualizacao do componente de overlasy indicativo de loading
   
     }
-
-
 
   }
 
