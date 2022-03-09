@@ -1,7 +1,11 @@
 import { mdiUpload } from '@mdi/js';
 import Icon from '@mdi/react';
 import { ChangeEvent, useEffect, useState } from 'react';
-import FileService from '../../../sdk/services/File.service';
+
+//import FileService from '../../../sdk/services/File.service';
+// Substituido sdk interno do projeto pelo modulo sdk criado e baixado do npm 
+import { FileService } from 'danielbonifacio-sdk';
+
 import Button from '../Button/Button';
 import Loading from '../Loading'
 import * as IU from './ImageUpload.styles'

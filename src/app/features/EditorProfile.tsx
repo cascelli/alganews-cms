@@ -8,9 +8,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 import styled from "styled-components";
-import { User } from "../../sdk/@types";
-import UserService from "../../sdk/services/User.service";
-import getEditorDescription from "../../sdk/utils/getEditorDescription";
+
+//import { User } from "../../sdk/@types";
+//import UserService from "../../sdk/services/User.service";
+//import getEditorDescription from "../../sdk/utils/getEditorDescription";
+// Substituindo os imports dos services do sdk local pelo modulo alganews-sdk
+//  criado fora do projeto como um pacote npm separado pois será usado em mais
+//  partes do projeto alganews
+import { getEditorDescription, User, UserService } from "danielbonifacio-sdk";
+
 import FieldDescriptor from "../components/FieldDescriptor/FieldDescriptor";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
 import ValueDescriptor from "../components/ValueDescriptor/ValueDescriptor";
