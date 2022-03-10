@@ -6,8 +6,14 @@ import { useEffect, useMemo, useState } from "react"
 import Skeleton from "react-loading-skeleton"
 import { Column, usePagination, useTable } from "react-table"
 import modal from "../../core/utils/modal";
-import { Post } from "../../sdk/@types"
-import PostService from "../../sdk/services/Post.service"
+
+//import { Post } from "../../sdk/@types"
+//import PostService from "../../sdk/services/Post.service"
+// Substituindo os imports dos services do sdk local pelo modulo alganews-sdk
+//  criado fora do projeto como um pacote npm separado pois será usado em mais
+//  partes do projeto alganews
+import { Post, PostService } from "danielbonifacio-sdk";
+
 import Loading from "../components/Loading"
 import PostTitleAnchor from "../components/PostTitleAnchor";
 import Table from "../components/Table/Table"

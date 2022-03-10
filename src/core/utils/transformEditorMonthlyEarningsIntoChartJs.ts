@@ -1,5 +1,11 @@
 import { ChartProps } from "../../app/components/Chart/Chart";
-import { Metric } from '../../sdk/@types';
+
+//import { Metric } from '../../sdk/@types';
+// Substituindo os imports dos services do sdk local pelo modulo alganews-sdk
+//  criado fora do projeto como um pacote npm separado pois será usado em mais
+//  partes do projeto alganews
+import { Metric } from "danielbonifacio-sdk";
+
 import { format } from 'date-fns'; // Formatacao de datas
 import { ptBR } from 'date-fns/locale'; // Traducao para protugues brasileiro de data
 

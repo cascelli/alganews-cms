@@ -14,7 +14,7 @@
     "@types/react-dom": "^17.0.0",
     "axios": "^0.21.1",
     "chart.js": "2.9.4",
-    "danielbonifacio-sdk": "2.6.0",
+    "danielbonifacio-sdk": "2.7.0",
     "date-fns": "^2.21.1",
     "markdown-it": "^12.0.6",
     "polished": "^4.1.2",

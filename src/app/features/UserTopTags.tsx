@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton"
 import styled from "styled-components";
-import { Metric } from "../../sdk/@types";
-import MetricService from "../../sdk/services/Metric.service";
+
+//import { Metric } from "../../sdk/@types";
+//import MetricService from "../../sdk/services/Metric.service";
+// Substituindo os imports dos services do sdk local pelo modulo alganews-sdk
+//  criado fora do projeto como um pacote npm separado pois será usado em mais
+//  partes do projeto alganews
+import { Metric, MetricService } from "danielbonifacio-sdk";
+
 import CircleChart from "../components/CircleChart";
 
 export default function UserTopTags() {

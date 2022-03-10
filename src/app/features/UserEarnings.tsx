@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton"
 import styled from "styled-components";
-import { User } from "../../sdk/@types";
-import UserService from "../../sdk/services/User.service";
+
+//import { User } from "../../sdk/@types";
+//import UserService from "../../sdk/services/User.service";
+// Substituindo os imports dos services do sdk local pelo modulo alganews-sdk
+//  criado fora do projeto como um pacote npm separado pois será usado em mais
+//  partes do projeto alganews
+import { User, UserService } from "danielbonifacio-sdk";
+
 import ValueDescriptor from "../components/ValueDescriptor/ValueDescriptor";
 
 export default function UserEarnings() {

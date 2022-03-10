@@ -6802,10 +6802,10 @@ damerau-levenshtein@^1.0.6:
   resolved "https://registry.yarnpkg.com/damerau-levenshtein/-/damerau-levenshtein-1.0.6.tgz#143c1641cb3d85c60c32329e26899adea8701791"
   integrity sha512-JVrozIeElnj3QzfUIt8tB8YMluBJom4Vw9qTPpjGYQ9fYlB3D/rb6OordUxf3xeFB35LKWs0xqcO5U6ySvBtug==
 
-danielbonifacio-sdk@2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/danielbonifacio-sdk/-/danielbonifacio-sdk-2.6.0.tgz#f82ec36422cfe992761cbca19c6d7e7047860074"
-  integrity sha512-2xcymvpWU03GjgqyUQnwTYsTXyXy3aB+n06nFK3m/nzULHADMbc9Md1wz/8u+/hsn170X65TalvgUfL2yCVX4A==
+danielbonifacio-sdk@2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/danielbonifacio-sdk/-/danielbonifacio-sdk-2.7.0.tgz#1f49c204a3bdafad7c1fe68eb4706f0958d94ca8"
+  integrity sha512-Fp0iIJ5zmyeTdGuQbMeeZsZZvGiaIYIMWKWmXx4bXAaS5iYqs+ScIyL6DxwUqXzS2SkHS1tnw1Sk5Kz9GTTjdw==
   dependencies:
     axios "^0.21.1"
     date-fns "^2.22.1"

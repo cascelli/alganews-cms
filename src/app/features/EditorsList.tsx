@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton"
 import styled from "styled-components";
-import { User } from "../../sdk/@types";
-import UserService from "../../sdk/services/User.service";
-import getEditorDescription from "../../sdk/utils/getEditorDescription";
+
+//import { User } from "../../sdk/@types";
+//import UserService from "../../sdk/services/User.service";
+//import getEditorDescription from "../../sdk/utils/getEditorDescription";
+// Substituindo os imports dos services do sdk local pelo modulo alganews-sdk
+//  criado fora do projeto como um pacote npm separado pois será usado em mais
+//  partes do projeto alganews
+import { getEditorDescription, User, UserService } from "danielbonifacio-sdk";
+
 import Profile from "../components/Profile";
 
 export default function EditorsList() {

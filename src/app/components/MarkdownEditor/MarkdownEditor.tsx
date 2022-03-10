@@ -2,7 +2,13 @@ import MarkdownIt from 'markdown-it'
 import MdEditor, { Plugins } from 'react-markdown-editor-lite'
 
 import 'react-markdown-editor-lite/lib/index.css';
-import FileService from '../../../sdk/services/File.service';
+
+//import FileService from '../../../sdk/services/File.service';
+// Substituindo os imports dos services do sdk local pelo modulo alganews-sdk
+//  criado fora do projeto como um pacote npm separado pois será usado em mais
+//  partes do projeto alganews
+import { FileService } from 'danielbonifacio-sdk';
+
 
 MdEditor.unuse(Plugins.FontUnderline)
 

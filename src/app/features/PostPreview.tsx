@@ -2,8 +2,14 @@ import { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import withBoundary from "../../core/hoc/withBoundary";
-import { Post } from "../../sdk/@types";
-import PostService from "../../sdk/services/Post.service";
+
+//import { Post } from "../../sdk/@types";
+//import PostService from "../../sdk/services/Post.service";
+// Substituindo os imports dos services do sdk local pelo modulo alganews-sdk
+//  criado fora do projeto como um pacote npm separado pois será usado em mais
+//  partes do projeto alganews
+import { Post, PostService } from "danielbonifacio-sdk";
+
 import Button from "../components/Button/Button";
 import MarkdownEditor from "../components/MarkdownEditor";
 import Loading from "../components/Loading";

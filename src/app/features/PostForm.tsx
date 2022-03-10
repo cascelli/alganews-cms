@@ -5,7 +5,13 @@ import { Tag } from "react-tag-input";
 import styled from "styled-components";
 import countWordsInMarkdown from "../../core/utils/countWordsInMarkdown";
 import info from "../../core/utils/info";
-import PostService from "../../sdk/services/Post.service";
+
+//import PostService from "../../sdk/services/Post.service";
+// Substituindo os imports dos services do sdk local pelo modulo alganews-sdk
+//  criado fora do projeto como um pacote npm separado pois será usado em mais
+//  partes do projeto alganews
+import { PostService } from "danielbonifacio-sdk";
+
 import Button from "../components/Button/Button";
 import ImageUpload from "../components/ImageUpload";
 import Input from "../components/Input/Input";
