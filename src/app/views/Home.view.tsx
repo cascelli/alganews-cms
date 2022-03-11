@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import usePageTitle from "../../core/Hooks/usePageTitle"
 import selectPaginatedPosts from "../../core/selectors/selectPaginatedPosts"
 import { RootState } from "../../core/store"
-import { addPost } from "../../core/store/Post.slice"
+import { addPost, fetchPosts } from "../../core/store/Post.slice"
 import ErrorBoundary from "../components/ErrorBoundary"
 import PostsList from "../features/PostsList"
 import UserEarnings from "../features/UserEarnings"
@@ -67,7 +67,7 @@ export default function Home() {
 
     <button
       onClick={() => {
-        dispatch(addPost(fakePost));
+        dispatch(fetchPosts({ page: 2}));
       }}
     >
       disparar acao
