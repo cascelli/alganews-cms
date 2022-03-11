@@ -17,6 +17,8 @@ import App from './app';
 //import PostCreateView from './app/views/PostCreate.view';
 //import EditorProfileView from './app/views/EditorProfile.view';
 
+import { Provider } from 'react-redux'
+import store from './core/store'
 ReactDOM.render(
   <React.StrictMode>
 
@@ -41,7 +43,10 @@ ReactDOM.render(
 
     {/* </div> */}
 
-    <App />
+    {/* configura a store raiz */}  
+    <Provider store={store}>
+      <App />
+    </Provider>
     
     <GlobalStyles />
 
