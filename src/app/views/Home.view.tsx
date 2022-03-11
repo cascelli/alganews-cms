@@ -1,6 +1,8 @@
 import { useEffect } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import usePageTitle from "../../core/Hooks/usePageTitle"
+import selectPaginatedPosts from "../../core/selectors/selectPaginatedPosts"
+import { RootState } from "../../core/store"
 import { addPost } from "../../core/store/Post.slice"
 import ErrorBoundary from "../components/ErrorBoundary"
 import PostsList from "../features/PostsList"
@@ -49,14 +51,31 @@ const fakePost = {
 };
 
 export default function Home() {
-  usePageTitle('Home')
-  const dispatch = useDispatch()
+  usePageTitle('Home');
+  const dispatch = useDispatch();
+  // const paginatedPosts = useSelector((state: RootState) => state.post.paginated?.content)
+  const paginatedPosts = useSelector(selectPaginatedPosts)
 
-  useEffect(() => {
-    dispatch(addPost(fakePost))
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(addPost(fakePost))
+  // }, [dispatch])
+
+  useEffect(() => {}, [dispatch])
+
 
   return <DefaultLayout>
+
+    <button
+      onClick={() => {
+        dispatch(addPost(fakePost));
+      }}
+    >
+      disparar acao
+    </button>
+    {paginatedPosts?.map((post) => (
+        <li>{post.title}</li>
+    ))}
+
 
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center', gap: 32 }}>
 
