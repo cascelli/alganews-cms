@@ -26,4 +26,8 @@ const postSlice = createSlice({
     }
 });
 
+// Exportando um reducer
 export const postReducer = postSlice.reducer;
+
+// Exportando uma action
+export const { addPost } = postSlice.actions;
