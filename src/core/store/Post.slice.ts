@@ -3,6 +3,7 @@ import {
   createSlice,
   isFulfilled,
   isPending,
+  isRejected,
   PayloadAction,
 } from "@reduxjs/toolkit";
 import { Post, PostService } from "danielbonifacio-sdk";
@@ -49,6 +50,9 @@ const postSlice = createSlice({
         state.fetching = true;
       })
       .addMatcher(isFulfilled, (state) => {
+        state.fetching = false;
+      })
+      .addMatcher(isRejected, (state) => {
         state.fetching = false;
       });
   },
