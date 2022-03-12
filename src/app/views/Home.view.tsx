@@ -1,15 +1,15 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import usePageTitle from "../../core/Hooks/usePageTitle"
-import selectPaginatedPosts from "../../core/selectors/selectPaginatedPosts"
-import { RootState } from "../../core/store"
-import { addPost, fetchPosts } from "../../core/store/Post.slice"
-import ErrorBoundary from "../components/ErrorBoundary"
-import PostsList from "../features/PostsList"
-import UserEarnings from "../features/UserEarnings"
-import UserPerformance from "../features/UserPerformance"
-import UserTopTags from "../features/UserTopTags"
-import DefaultLayout from "../layouts/Default"
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import usePageTitle from "../../core/Hooks/usePageTitle";
+import selectPaginatedPosts from "../../core/selectors/selectPaginatedPosts";
+import { RootState } from "../../core/store";
+import { addPost, fetchPosts } from "../../core/store/Post.slice";
+import ErrorBoundary from "../components/ErrorBoundary";
+import PostsList from "../features/PostsList";
+import UserEarnings from "../features/UserEarnings";
+import UserPerformance from "../features/UserPerformance";
+import UserTopTags from "../features/UserTopTags";
+import DefaultLayout from "../layouts/Default";
 
 const fakePost = {
   id: 42,
@@ -51,47 +51,50 @@ const fakePost = {
 };
 
 export default function Home() {
-  usePageTitle('Home');
+  usePageTitle("Home");
   const dispatch = useDispatch();
   // const paginatedPosts = useSelector((state: RootState) => state.post.paginated?.content)
-  const paginatedPosts = useSelector(selectPaginatedPosts)
+  const paginatedPosts = useSelector(selectPaginatedPosts);
 
   // useEffect(() => {
   //   dispatch(addPost(fakePost))
   // }, [dispatch])
 
-  useEffect(() => {}, [dispatch])
+  useEffect(() => {}, [dispatch]);
 
-
-  return <DefaultLayout>
-
-    <button
-      onClick={() => {
-        dispatch(fetchPosts({ page: 2}));
-      }}
-    >
-      disparar acao
-    </button>
-    {paginatedPosts?.map((post) => (
+  return (
+    <DefaultLayout>
+      <button
+        onClick={() => {
+          dispatch(fetchPosts({ page: 0 }));
+        }}
+      >
+        disparar acao
+      </button>
+      {paginatedPosts?.map((post) => (
         <li>{post.title}</li>
-    ))}
+      ))}
 
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          alignItems: "center",
+          gap: 32,
+        }}
+      >
+        <ErrorBoundary component={"top tags"}>
+          <UserTopTags />
+        </ErrorBoundary>
 
-    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center', gap: 32 }}>
+        <ErrorBoundary component={"earnings"}>
+          <UserEarnings />
+        </ErrorBoundary>
+      </div>
 
-      <ErrorBoundary component={'top tags'}>
-        <UserTopTags />
-      </ErrorBoundary>    
+      {/* <ErrorBoundary component={'performance'}> */}
 
-      <ErrorBoundary component={'earnings'}>
-        <UserEarnings />
-      </ErrorBoundary>    
-
-    </div>
-
-    {/* <ErrorBoundary component={'performance'}> */}
-
-    {/* 
+      {/* 
         Forma alternativa e mais eficiente de implementação do ErrorBoundary em um componente :
 
         Usando HOC (Higher Order Component) para inserir o ErrorBoundary 
@@ -101,12 +104,11 @@ export default function Home() {
     */}
 
       <UserPerformance />
-    {/* </ErrorBoundary> */}
+      {/* </ErrorBoundary> */}
 
-    <ErrorBoundary component={'lista de posts'}>
-      <PostsList />
-    </ErrorBoundary>
- 
-  </DefaultLayout>
-  
+      <ErrorBoundary component={"lista de posts"}>
+        <PostsList />
+      </ErrorBoundary>
+    </DefaultLayout>
+  );
 }
