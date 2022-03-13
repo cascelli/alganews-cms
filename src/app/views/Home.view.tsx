@@ -1,12 +1,13 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+//import { useEffect } from "react";
+//import { useDispatch, useSelector } from "react-redux";
 import usePageTitle from "../../core/Hooks/usePageTitle";
-import selectPostsCounter from "../../core/selectors/selectPostsCounter";
+import usePosts from "../../core/Hooks/usePosts";
+//import selectPostsCounter from "../../core/selectors/selectPostsCounter";
 //import selectPaginatedPosts from "../../core/selectors/selectPaginatedPosts";
 //import { RootState } from "../../core/store";
 //import { addPost, fetchPosts } from "../../core/store/Post.slice";
 // Removido no capitulo 10.16
-import { increment } from "../../core/store/Post.slice";
+//import { increment } from "../../core/store/Post.slice";
 import ErrorBoundary from "../components/ErrorBoundary";
 import PostsList from "../features/PostsList";
 import UserEarnings from "../features/UserEarnings";
@@ -56,23 +57,26 @@ import DefaultLayout from "../layouts/Default";
 
 export default function Home() {
   usePageTitle("Home");
-  const dispatch = useDispatch();
+  const { paginatedPosts, loading, fetchPosts } = usePosts();
+
+  //const dispatch = useDispatch();
   // const paginatedPosts = useSelector((state: RootState) => state.post.paginated?.content)
   //const paginatedPosts = useSelector(selectPaginatedPosts);
-  const counter = useSelector(selectPostsCounter);
+  //const counter = useSelector(selectPostsCounter);
 
   // useEffect(() => {
   //   dispatch(addPost(fakePost))
   // }, [dispatch])
 
-  useEffect(() => {}, [dispatch]);
+  //useEffect(() => {}, [dispatch]);
 
   return (
     <DefaultLayout>
       <button
         onClick={() => {
           //dispatch(fetchPosts({ page: 0 }));
-          dispatch(increment());
+          //dispatch(increment());
+          fetchPosts({ page: 1 });
         }}
       >
         disparar ação
@@ -80,7 +84,12 @@ export default function Home() {
       {/* {paginatedPosts?.map((post) => (
         <li>{post.title}</li>
       ))} */}
-      {counter}
+      {/* {counter} */}
+      {loading ? "Carregando..." : "Finalizado."}
+      <hr />
+      {paginatedPosts?.map((post) => (
+        <li>{post.title}</li>
+      ))}
 
       <div
         style={{
