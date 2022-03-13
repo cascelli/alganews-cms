@@ -1,5 +1,6 @@
 //import { useEffect } from "react";
 //import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import usePageTitle from "../../core/Hooks/usePageTitle";
 import usePosts from "../../core/Hooks/usePosts";
 //import selectPostsCounter from "../../core/selectors/selectPostsCounter";
@@ -70,9 +71,13 @@ export default function Home() {
 
   //useEffect(() => {}, [dispatch]);
 
+  useEffect(() => {
+    fetchPosts({ page: 1 });
+  }, [fetchPosts]);
+
   return (
     <DefaultLayout>
-      <button
+      {/* <button
         onClick={() => {
           //dispatch(fetchPosts({ page: 0 }));
           //dispatch(increment());
@@ -80,12 +85,16 @@ export default function Home() {
         }}
       >
         disparar ação
-      </button>
+      </button> */}
+
       {/* {paginatedPosts?.map((post) => (
         <li>{post.title}</li>
-      ))} */}
+        ))} */}
+
       {/* {counter} */}
+
       {loading ? "Carregando..." : "Finalizado."}
+
       <hr />
       {paginatedPosts?.map((post) => (
         <li>{post.title}</li>
