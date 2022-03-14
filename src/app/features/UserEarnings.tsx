@@ -7,7 +7,7 @@ import useUser from "../../core/hooks/useUser";
 import ValueDescriptor from "../components/ValueDescriptor/ValueDescriptor";
 
 export default function UserEarnings() {
-  //const [user, setUser] = useState<User.Detailed>();
+  // const [user, setUser] = useState<User.Detailed>();
   const { user, fetchUser } = useUser();
 
   /*
