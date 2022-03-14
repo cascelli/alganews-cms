@@ -1,7 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 import { Wrapper as Button } from '../Button/Button.styles'
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+  
+`
 
 export const ImagePreview = styled.div<{ preview: string }>`
   height: 100%;
@@ -24,8 +26,7 @@ export const ImagePreviewWrapper = styled.div`
   }
 
   &:hover {
-
-    ${ ImagePreview } {
+    ${ImagePreview} {
       opacity: 0.7;
     }
 
@@ -34,7 +35,6 @@ export const ImagePreviewWrapper = styled.div`
     }
   }
 `
-
 
 export const Input = styled.input`
   display: none;
@@ -49,6 +49,6 @@ export const Label = styled.label`
   cursor: pointer;
 
   display: flex;
-  align-itens: center;
+  align-items: center;
   gap: 12px;
 `

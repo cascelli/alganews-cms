@@ -4,10 +4,13 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
   flex-direction: column;
   gap: 18px;
+
   border: 1px solid #ccc;
   padding: 24px;
+
   color: #274060;
 `
 
@@ -22,7 +25,9 @@ export const Name = styled.h2`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+
   text-align: center;
+
   font-size: 18px;
   font-weight: 600;
 `

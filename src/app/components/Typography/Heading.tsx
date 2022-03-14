@@ -1,12 +1,11 @@
 import styled from "styled-components"
 
 export interface HeadingProps {
-  level: 1 | 2| 3
+  level: 1 | 2 | 3
   children: React.ReactNode
 }
 
 export default function Heading ({ level, children }: HeadingProps) {
-
   const Component = ({
     1: Heading1,
     2: Heading2,
@@ -16,7 +15,6 @@ export default function Heading ({ level, children }: HeadingProps) {
   return <Component>
     { children }
   </Component>
-  
 }
 
 const Heading1 = styled.h1`

@@ -1,54 +1,25 @@
-import { transparentize } from "polished";
-//import { useEffect, useState } from "react";
-import { useEffect } from "react";
-
-// "You must use React >= 16.8 in order to use useParams()"
-//import { useParams } from "react-router";
-// Substituido import acima
-//import { useParams } from "react-router-dom";
-import { useParams } from "react-router";
-
-import styled from "styled-components";
-
-//import { User } from "../../sdk/@types";
-//import UserService from "../../sdk/services/User.service";
-//import getEditorDescription from "../../sdk/utils/getEditorDescription";
-// Substituindo os imports dos services do sdk local pelo modulo alganews-sdk
-//  criado fora do projeto como um pacote npm separado pois será usado em mais
-//  partes do projeto alganews
-//import { getEditorDescription, User, UserService } from "danielbonifacio-sdk";
 import { getEditorDescription } from "danielbonifacio-sdk";
-
+import { transparentize } from "polished";
+import { useEffect } from "react";
+import { useParams } from "react-router";
+import styled from "styled-components";
+import useSingleEditor from "../../core/hooks/useSingleEditor";
 import FieldDescriptor from "../components/FieldDescriptor/FieldDescriptor";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
 import ValueDescriptor from "../components/ValueDescriptor/ValueDescriptor";
-import useSingleEditor from "../../core/Hooks/useSingleEditor";
 
 interface EditorProfileProps {
   hidePersonalData?: boolean;
 }
 
 function EditorProfile(props: EditorProfileProps) {
-  // Descomentar para forçar erro e teste do ErrorBoundary
-  //throw new Error("Houve um erro ao renderizar o componente EditorProfile");
-
   const params = useParams<{ id: string }>();
-  //const params = useParams();
-
-  //const [editor, setEditor] = useState<User.EditorDetailed>();
   const { editor, fetchEditor } = useSingleEditor();
 
-  // useEffect(() => {
-  //   UserService.getExistingEditor(Number(params.id))
-  //     //.then(editor => setEditor(editor))
-  //     .then(setEditor); // Simplificacao da linha anterior
-  // }, [params.id]);
   useEffect(() => {
     fetchEditor(Number(params.id));
   }, [fetchEditor, params.id]);
 
-  // Verifica se existe editor e retorna null se nao existir
-  // Necessario para evitar erro no editor do bloco EditorHeadline mais abaixo
   if (!editor) return null;
 
   return (
@@ -79,11 +50,9 @@ function EditorProfile(props: EditorProfileProps) {
             })}
           </Skills>
         </PersonalInfo>
-
         <ContactInfo>
           <FieldDescriptor field={"Cidade"} value={editor.location.city} />
           <FieldDescriptor field={"Estado"} value={editor.location.state} />
-
           {!props.hidePersonalData && (
             <>
               <FieldDescriptor field={"Telefone"} value={"+55 27 99900-9999"} />
@@ -99,7 +68,6 @@ function EditorProfile(props: EditorProfileProps) {
           )}
         </ContactInfo>
       </EditorFeatures>
-
       {!props.hidePersonalData && (
         <EditorEarnings>
           <ValueDescriptor

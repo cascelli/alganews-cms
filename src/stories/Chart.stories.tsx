@@ -1,6 +1,4 @@
-//import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Story, Meta } from '@storybook/react';
-
 import Chart, { ChartProps } from '../app/components/Chart/Chart';
 
 const data: Chart.ChartData = {
@@ -10,8 +8,8 @@ const data: Chart.ChartData = {
       label: 'Receitas',
       data: [500, 400, 600, 100, 800, 20],
       fill: true,
-      backgroundColor: '#0099ff',
-      borderColor: '#0099ff',
+      backgroundColor: '#0099FF',
+      borderColor: '#0099FF',
       borderWidth: 0.5,
       yAxisID: 'cashflow',
     },
@@ -30,25 +28,17 @@ const data: Chart.ChartData = {
 export default {
   title: 'Example/Chart',
   component: Chart,
-//} as ComponentMeta<typeof Chart>;
 } as Meta;
 
-
-
-//const Template: ComponentStory<typeof ChartProps> = (args) => <Chart {...args} />;
-//const Template: ComponentStory<typeof Chart> = (args) => <Chart {...args} />;
 const Template: Story<ChartProps> = (args) => <Chart {...args} />;
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
+Default.args = {
+  title: 'Média de performance nos últimos 12 meses',
+  data
+}
 
-Default.args = { 
-  title: 'Média de performance dos últimos 12 meses',
-  data 
-};
-
-
-export const WithoutData = Template.bind({});
-
+export const WithoutData = Template.bind({})
 WithoutData.args = {
-  title: 'Média de performance dos últimos 12 meses',
- };
+  title: 'Média de performance nos últimos 6 meses'
+}

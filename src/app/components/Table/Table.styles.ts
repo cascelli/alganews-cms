@@ -4,11 +4,11 @@ import { transparentize } from 'polished'
 export const Wrapper = styled.table`
   width: 100%;
   color: #274060;
-  background-color: ${ transparentize(0.95, '#274060')};
+  background-color: ${transparentize(0.95, '#274060')};
 `
 
 export const Heading = styled.thead`
-  background-color: ${ transparentize(0.85, '#274060')};
+  background-color: ${transparentize(0.85, '#274060')};
 `
 
 export const HeadingRow = styled.tr``
@@ -24,7 +24,7 @@ export const Body = styled.tbody``
 export const BodyRow = styled.tr``
 
 export const BodyCell = styled.td`
-  heyght: 40px;
+  height: 40px;
   font-size: 12px;
   font-weight: 500;
   padding: 0 8px;
@@ -47,16 +47,15 @@ export const TablePagination = styled.div`
         color: #fff;
         padding: 4px 8px;
         display: block;
-
         transition: .25s ease;
-
+        
         &:hover,
         &:focus {
           box-shadow: 0 6px 6px rgba(0,0,0,.15);
           transform: translateY(-3px);
         }
-
       }
+
       &.selected a,
       &.disabled a {
         background-color: #ccc;

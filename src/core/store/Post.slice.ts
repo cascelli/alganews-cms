@@ -2,20 +2,20 @@ import {
   createAction,
   createAsyncThunk,
   createReducer,
-  // createSlice, // Removido noi capitulo 10.16
   isFulfilled,
   isPending,
   isRejected,
-  //PayloadAction, // Removido noi capitulo 10.16
 } from "@reduxjs/toolkit";
 import { Post, PostService } from "danielbonifacio-sdk";
 
+// Cria a interface para definir o tipo a ser usado no estado inicial
 interface PostSliceState {
   paginated?: Post.Paginated;
   fetching: boolean;
   counter: number;
 }
 
+// Cria o Estado inicial
 const initialState: PostSliceState = {
   fetching: false,
   counter: 0,
@@ -28,6 +28,7 @@ const initialState: PostSliceState = {
   },
 };
 
+// Cria a Thunk
 export const fetchPosts = createAsyncThunk(
   "post/fetchPosts",
   async function (query: Post.Query) {
@@ -38,6 +39,7 @@ export const fetchPosts = createAsyncThunk(
 
 export const increment = createAction("post/increment");
 
+// Cria o Reducer
 export const postReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(increment, (state) => {
@@ -56,38 +58,3 @@ export const postReducer = createReducer(initialState, (builder) => {
       state.fetching = false;
     });
 });
-
-/*
-const postSlice = createSlice({
-  name: "post",
-  //initialState: {},
-  initialState,
-  reducers: {
-    // Removido no capitulo 10.16
-    // addPost(state, action: PayloadAction<Post.Summary>) {
-    //   state.paginated?.content?.push(action.payload);
-    },
-  },
-  extraReducers(builder) {
-    // builder
-    //   .addCase(fetchPosts.fulfilled, (state, action) => {
-    //     state.paginated = action.payload;
-    //   })
-    //   .addMatcher(isPending, (state) => {
-    //     state.fetching = true;
-    //   })
-    //   .addMatcher(isFulfilled, (state) => {
-    //     state.fetching = false;
-    //   })
-    //   .addMatcher(isRejected, (state) => {
-    //     state.fetching = false;
-    //   });
-  },
-});
-
-// Exportando um reducer
-// export const postReducer = postSlice.reducer;
-
-// Exportando uma action
-// export const { addPost } = postSlice.actions;
-*/

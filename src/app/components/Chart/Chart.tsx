@@ -1,42 +1,15 @@
-//import Chart from 'chart.js';
 import { transparentize } from 'polished';
 import { Line } from 'react-chartjs-2';
 import styled from 'styled-components';
 import NoData from '../NoData/NoData';
 import Heading from '../Typography/Heading';
 
-/*
-const data = {
-  labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
-  datasets: [
-    {
-      label: 'Receitas',
-      data: [500, 400, 600, 100, 800, 20],
-      fill: true,
-      backgroundColor: '#0099ff',
-      borderColor: '#0099ff',
-      borderWidth: 0.5,
-      yAxisID: 'cashflow',
-    },
-    {
-      label: 'Despesas',
-      data: [100, 200, 250, 500, 1000, 600],
-      fill: true,
-      backgroundColor: '#274060',
-      borderColor: '#274060',
-      borderWidth: 0.5,
-      yAxisID: 'cashflow',
-    },
-  ],
-};
-*/
-
 const options: Chart.ChartOptions = {
   maintainAspectRatio: true,
   elements: {
     line: {
-      tension: 0,
-    },
+      tension: 0
+    }
   },
   legend: {
     display: true,
@@ -44,15 +17,15 @@ const options: Chart.ChartOptions = {
     align: 'center',
     labels: {
       usePointStyle: true
-    },
+    }
   },
   scales: {
     xAxes: [
       {
         display: true,
         gridLines: {
-          display: false,
-        },
+          display: false
+        }
       }
     ],
     yAxes: [
@@ -61,33 +34,33 @@ const options: Chart.ChartOptions = {
         display: false,
         position: 'left',
         id: 'cashflow',
-      },
+      }
     ],
   },
 };
 
-export interface ChartProps{
+export interface ChartProps {
   data: Chart.ChartData
   title: string
 }
 
-export default function Chart({ data, title }: ChartProps) {
+export default function Chart ({ data, title }: ChartProps) {
   return <ChartWrapper style={{ width: '100%' }}>
-    <div style={{ marginBottom: 16}}>
-      <Heading level={3} >
-        { title }
+    <div style={{ marginBottom: 16 }}>
+      <Heading level={3}>
+        {title}
       </Heading>
     </div>
     {
       data
-        ? <Line 
+        ? <Line
             type="line"
             height={139}
             width={600}
             data={data}
             options={options}
           />
-        : <NoData height={139}/>
+        : <NoData height={139} />
     }
   </ChartWrapper>
 }

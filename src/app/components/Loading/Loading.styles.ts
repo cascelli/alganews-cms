@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const LoadingWrapper = styled.div`
   position: fixed;
-  top 0;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -26,7 +26,7 @@ export const LoadingWrapper = styled.div`
       opacity: 1;
     }
   }
-  
+
 
   .lds-ring {
     display: inline-block;
@@ -63,5 +63,5 @@ export const LoadingWrapper = styled.div`
       transform: rotate(360deg);
     }
   }
-  
+
 `

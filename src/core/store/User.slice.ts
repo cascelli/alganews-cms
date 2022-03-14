@@ -19,6 +19,7 @@ interface UserSliceState {
   editors: User.EditorSummary[];
   fetching: boolean;
 }
+
 const initialState: UserSliceState = {
   fetching: false,
   editors: [],
@@ -32,6 +33,7 @@ const userSlice = createSlice({
     const pendingActions = isPending(fetchEditors);
     const fulfilledActions = isFulfilled(fetchEditors);
     const rejectedActions = isRejected(fetchEditors);
+
     builder
       .addMatcher(pendingActions, (state) => {
         state.fetching = true;

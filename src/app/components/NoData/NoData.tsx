@@ -4,8 +4,8 @@ export interface NoDataProps {
   height?: number
 }
 
-export default function NoData({ height = 120 }: NoDataProps) {
-  return <NoDataWrapper height={ height } >
+export default function NoData ({ height = 120 }: NoDataProps) {
+  return <NoDataWrapper height={height}>
     <Message>Sem dados para exibir</Message>
     <SadFace>:(</SadFace>
   </NoDataWrapper>
@@ -16,8 +16,8 @@ const NoDataWrapper = styled.div<{ height: number }>`
   gap: 10px;
   justify-content: center;
   align-items: center;
-  width: 100%; 
-  height: ${ p => p.height }px;
+  width: 100%;
+  height: ${p => p.height}px;
 `
 
 const Message = styled.span`
@@ -28,7 +28,6 @@ const Message = styled.span`
 
 const SadFace = styled.span`
   font-family: 'Roboto Mono', monospace;
-  color: #0099FF;
-  font-weigth: 700;
-
+  color: #0099ff;
+  font-weight: 700;
 `

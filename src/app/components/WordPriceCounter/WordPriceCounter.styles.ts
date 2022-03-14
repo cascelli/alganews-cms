@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -11,6 +11,6 @@ export const WordCounter = styled.span`
   color: #274060;
 `
 
-export const PricePreview = styled.span`
+export const PricePrivew = styled.span`
   color: #09f;
 `

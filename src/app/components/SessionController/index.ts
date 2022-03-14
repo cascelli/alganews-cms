@@ -1,4 +1,2 @@
-import { SessionControllerProps } from './SessionController'
-
 export { default } from './SessionController'
-export type { SessionControllerProps }
+export type { SessionControllerProps } from './SessionController'

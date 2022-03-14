@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import Button from "../Button/Button"
+import styled from "styled-components";
+import Button from "../Button/Button";
 
 export interface ConfirmProps {
   title: string
@@ -7,14 +7,14 @@ export interface ConfirmProps {
   onCancel: () => any
 }
 
-export default function Confirm(props : ConfirmProps) {
+export default function Confirm (props: ConfirmProps) {
   return <ConfirmWrapper>
     <ConfirmTitle>{props.title}</ConfirmTitle>
-        <ConfirmButtonDisplay>
-          <Button label="Não" variant="danger" onClick={props.onCancel}/>
-          <Button label="Sim" variant="primary" onClick={props.onConfirm}/>
-        </ConfirmButtonDisplay>
-    </ConfirmWrapper>
+    <ConfirmButtonDisplay>
+      <Button variant="danger" label="Não" onClick={props.onCancel}/>
+      <Button variant="primary" label="Sim" onClick={props.onConfirm}/>
+    </ConfirmButtonDisplay>
+  </ConfirmWrapper>
 }
 
 const ConfirmWrapper = styled.div`
@@ -35,7 +35,7 @@ export const ConfirmTitle = styled.h2`
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  line-clamp:1
+  line-clamp: 1;
   overflow: hidden;
 `
 

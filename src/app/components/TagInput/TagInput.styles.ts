@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   .ReactTags__selected {
@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
     color: #fff;
     padding: 4px 8px;
     display: flex;
-    align-items: center; 
+    align-items: center;
   }
 
   .ReactTags__remove {
@@ -23,17 +23,16 @@ export const Wrapper = styled.div`
     background-color: transparent;
     cursor: pointer;
     font-size: 1em;
+
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-
   .ReactTags__tagInput {
     flex-grow: 1;
   }
-
-
+  
   .ReactTags__tagInputField {
     color: #274060;
     background-color: transparent;
@@ -45,8 +44,5 @@ export const Wrapper = styled.div`
     outline: none;
     border: none;
     border-bottom: 1px solid #ccc;
-
   }
-
-
 `

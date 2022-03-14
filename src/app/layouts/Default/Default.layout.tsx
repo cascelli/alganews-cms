@@ -9,46 +9,39 @@ interface DefaultLayoutProps {
   children: React.ReactNode
 }
 
-function DefaultLayout(props: DefaultLayoutProps) {
+function DefaultLayout (props: DefaultLayoutProps) {
   return <DL.Wrapper>
-
     <DL.Header>
       <Logo />
     </DL.Header>
-
     <DL.Main>
-      <DL.Navigation><NavBar /></DL.Navigation>
-      <DL.FeaturedContent> { props.children } </DL.FeaturedContent>
+      <DL.Navigation>
+        <NavBar />
+      </DL.Navigation>
+      <DL.FeaturedContent>
+        { props.children }
+      </DL.FeaturedContent>
       <DL.Aside>
-        <SessionController 
-          name="Daniel Bonifácio" 
-          description="Editor a 2 anos"
+        <SessionController
+          name="Daniel Bonifacio"
+          description="editor há 2 anos"
           onLogout={() => {
             confirm({
-              title: 'Você quer deslogar ?',
+              title: 'Voce quer delogar?',
               onConfirm: () => {
-
-                // setTimeout(() => {
-
-                  info({
-                    title: 'Você foi deslogado',
-                    description: 'Você será redirecionado para a página de login'
-                  })
-
-                // },0)
-
-                // console.log('executado')
-                
+                info({
+                  title: 'Você foi deslogado',
+                  description: 'Você será redirecionado para a página de login'
+                })
+                console.log('executado')
               },
-              onCancel: () => window.alert('Cancelado'),
+              onCancel: () => window.alert('laranja'),
             })
-          }} 
+          }}
         />
       </DL.Aside>
     </DL.Main>
-
   </DL.Wrapper>
-
 }
 
 export default DefaultLayout

@@ -1,22 +1,21 @@
-import Icon from "@mdi/react"
-import { mdiInformation } from "@mdi/js"
-
-import styled from "styled-components"
-import curriedTransparentize from "polished/lib/color/transparentize"
+import Icon from "@mdi/react";
+import { mdiInformation } from '@mdi/js'
+import styled from "styled-components";
+import { transparentize } from "polished";
 
 export interface InfoProps {
-  title: string,
+  title: string
   description: string
 }
 
-export default function Info(props : InfoProps) {
+export default function Info (props: InfoProps) {
   return <InfoWrapper>
     <InfoInnerContent>
       <InfoIcon>
-        <Icon 
-          color = "#09f"
-          size = "48px"
-          path = { mdiInformation }
+        <Icon
+          color="#09f"
+          size="48px"
+          path={mdiInformation}
         />
       </InfoIcon>
       <InfoMessages>
@@ -34,7 +33,7 @@ const InfoWrapper = styled.div`
   justify-content: center;
   background-color: #F3F8FA;
   width: 373px;
-  border: 1px solid ${curriedTransparentize(0.9, '#274060')};
+  border: 1px solid ${transparentize(0.9, '#274060')};
 `
 
 const InfoInnerContent = styled.div`
@@ -57,6 +56,6 @@ export const InfoTitle = styled.h2`
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  line-clamp:1
+  line-clamp: 1;
   overflow: hidden;
 `

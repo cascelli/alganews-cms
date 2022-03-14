@@ -4,12 +4,11 @@ export interface ProfileProps {
   name: string;
   description: string;
   editorId: number;
-  avatarUrl?: string; 
+  avatarUrl?: string;
 }
 
 function Profile (props: ProfileProps) {
-    //return <P.Wrapper tabIndex={0} to={`/editor/${props.editorId}`}>
-    return <P.Wrapper tabIndex={0} to={`/editores/${props.editorId}`}>
+  return <P.Wrapper tabIndex={0} to={`/editores/${props.editorId}`}>
     <P.Avatar src={props.avatarUrl} />
     <P.Info>
       <P.Name>{ props.name }</P.Name>

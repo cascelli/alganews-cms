@@ -1,47 +1,14 @@
-//import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { mdiOpenInNew } from '@mdi/js';
 import Icon from '@mdi/react';
-//import { ComponentMeta } from '@storybook/react';
 import { Meta } from '@storybook/react';
-
 import { useMemo } from 'react';
 import { Column, useTable } from 'react-table';
-
-//import Table, { TableProps } from '../components/Table/Table';
 import Table from '../app/components/Table/Table';
-//import Table from '../components/Table/Table';
 
 export default {
   title: 'Example/Table',
   component: Table,
-
-  // argTypes: {
-  //   backgroundColor: { control: 'color' },
-  // }
-
-//} as ComponentMeta<typeof Table>;
 } as Meta;
-
-/*
-//const Template: ComponentStory<typeof { TableProps }> = (args) => <Table {...args} />;
-//const Template: ComponentStory<typeof { } > = (args) => <Table {...args} />;
-const Template: ComponentStory = (args) => <Table {...args} />;
-
-export const Default = Template.bind({});
-
-Default.args = {
-
-};
-*/
-
-/*
-type Data = {
-  preview: React.ReactNode;
-  col1: string,
-  col2: string,
-  actions: string
-}
-*/
 
 type Post = {
   id: number
@@ -52,92 +19,14 @@ type Post = {
     avatar: string
   }
   conversions: {
-    thousands: number
+    thoushands: number
     percentage: number
   }
 }
 
-
-/*
-export function Default() {
-
-  const data = useMemo<Data[]>(
-
-    () => [
- 
-      {
- 
-        col1: 'Hello',
- 
-        col2: 'World',
-
-        actions: 'ações',
-
-        preview: <Icon
-          size='14px'
-          color='#09f'
-          path={mdiOpenInNew} 
-        />,
-      },
- 
-      {
- 
-        col1: 'react-table',
- 
-        col2: 'rocks',
- 
-        actions: 'ações',
-
-        preview: <Icon
-          size='14px'
-          color='#09f'
-          path={mdiOpenInNew} 
-        />,
-      },
- 
-      {
- 
-        col1: 'whatever',
- 
-        col2: 'you want',
- 
-        actions: 'ações',
-
-        preview: <Icon
-          size='14px'
-          color='#09f'
-          path={mdiOpenInNew} 
-        />,
-      },
- 
-      {
- 
-        col1: 'batata',
- 
-        col2: 'banana',
- 
-        actions: 'ações',
-
-        preview: <Icon
-          size='14px'
-          color='#09f'
-          path={mdiOpenInNew} 
-        />,
-      },
-
-    ],
- 
-    []
- 
-  )
-*/
-
-export function Default() {
-
+export function Default () {
   const data = useMemo<Post[]>(
-
     () => [
-
       {
         author: {
           name: 'Daniel Bonifacio',
@@ -146,7 +35,7 @@ export function Default() {
         id: 1,
         conversions: {
           percentage: 64.35,
-          thousands: 607,
+          thoushands: 607,
         },
         title: 'Como dobrei meu salário aprendendo somente React',
         views: 985415
@@ -159,7 +48,7 @@ export function Default() {
         id: 2,
         conversions: {
           percentage: 64.35,
-          thousands: 607,
+          thoushands: 607,
         },
         title: 'React.js vs. React Native: a REAL diferença entre os dois',
         views: 985415
@@ -172,188 +61,106 @@ export function Default() {
         id: 3,
         conversions: {
           percentage: 95.35,
-          thousands: 845,
+          thoushands: 845,
         },
         title: 'Como dobrei meu salário aprendendo somente React',
         views: 985415
-      } 
-
+      }
     ],
- 
     []
- 
   )
-
 
   const columns = useMemo<Column<Post>[]>(
-
     () => [
- 
       {
- 
         Header: '',
- 
         accessor: 'id', // accessor is the "key" in the data
-
-        Cell: () => <Icon path={ mdiOpenInNew } size={'14px'} color={'#09f'} />
- 
+        Cell: () => <Icon path={mdiOpenInNew} size={'14px'} color={'#09f'} />
       },
- 
       {
- 
-        Header: () => <div style={{ textAlign: 'left'}}>Artigo</div>,
- 
-        accessor: 'title', // accessor is the "key" in the data
-
+        Header: () => <div style={{ textAlign: 'left' }}>Artigo</div>,
+        accessor: 'title',
         width: 320,
-
-        Cell: (props) => <div style={{textAlign: 'left', display: 'flex', gap: 8, alignItems: 'center'}}>
-          <img width={24} height={24} src={props.row.original.author.avatar} alt={props.row.original.author.name} />
+        Cell: (props) => <div style={{ textAlign: 'left', display: 'flex', gap: 8, alignItems: 'center' }}>
+          <img width={24} height={24} src={props.row.original.author.avatar} alt={props.row.original.author.name}/>
           {props.value}
         </div>
- 
       },
- 
       {
- 
-        Header: () => <div style={{ textAlign: 'right'}}>Views</div>,
- 
+        Header: () => <div style={{ textAlign: 'right' }}>Views</div>,
         accessor: 'views',
-
-        Cell: (props) => <div style={{textAlign: 'right', fontWeight: 700, fontFamily: '"Roboto mono", monospace'}}>{props.value.toLocaleString('pt-br')}</div>
-
- 
+        Cell: (props) => <div style={{ textAlign: 'right', fontWeight: 700, fontFamily: '"Roboto mono", monospace' }}>{props.value.toLocaleString('pt-br')}</div>
       },
- 
       {
- 
-        Header: () => <div style={{ textAlign: 'left'}}>Conversões</div>,
- 
+        Header: () => <div style={{ textAlign: 'left' }}>Conversões</div>,
         accessor: 'conversions',
-
-        Cell: (props) => <div style={{display: 'flex', gap: 8, fontWeight: 700, fontFamily: '"Roboto mono", monospace'}}>
-          
-            <span>{props.value.thousands}k</span>
-            <span style={{ color: '#09f'}}>{props.value.percentage}%</span>
-
-          </div>
- 
+        Cell: (props) => <div style={{ display: 'flex', gap: 8, fontWeight: 700, fontFamily: '"Roboto mono", monospace' }}>
+          <span>{props.value.thoushands}k</span>
+          <span style={{ color: '#09f' }}>{props.value.percentage}%</span>
+        </div>
       },
-
       {
-
         id: Math.random().toString(),
-         
-        Header: () => <div style={{ textAlign: 'right'}}>Ações</div>,
- 
-        Cell: () => <div style={{textAlign: 'right'}}>
-          
-            todo: actions
-
-          </div>
- 
+        Header: () => <div style={{ textAlign: 'right' }}>Ações</div>,
+        Cell: () => <div style={{ textAlign: 'right' }}>
+          todo: actions
+        </div>
       },
-
     ],
- 
     []
- 
   )
 
- 
   const instance = useTable<Post>({ data, columns })
 
   return <Table<Post> instance={instance} />
-
 }
 
-
-export function WithoutData() {
-
+export function WithoutData () {
   const data = useMemo<Post[]>(
-
     () => [],
     []
- 
   )
 
-    
   const columns = useMemo<Column<Post>[]>(
-
     () => [
- 
       {
- 
         Header: '',
- 
         accessor: 'id', // accessor is the "key" in the data
-
-        Cell: () => <Icon path={ mdiOpenInNew } size={'14px'} color={'#09f'} />
- 
+        Cell: () => <Icon path={mdiOpenInNew} size={'14px'} color={'#09f'} />
       },
- 
       {
- 
         Header: 'Artigo',
- 
-        accessor: 'title', // accessor is the "key" in the data
-
+        accessor: 'title',
         width: 320,
-
-        Cell: (props) => <div style={{textAlign: 'left', display: 'flex', gap: 8, alignItems: 'center'}}>
-          <img width={24} height={24} src={props.row.original.author.avatar} alt={props.row.original.author.name} />
+        Cell: (props) => <div style={{ textAlign: 'left', display: 'flex', gap: 8, alignItems: 'center' }}>
+          <img width={24} height={24} src={props.row.original.author.avatar} alt={props.row.original.author.name}/>
           {props.value}
         </div>
- 
       },
- 
       {
- 
         Header: 'Views',
- 
         accessor: 'views',
-
-        Cell: (props) => <div style={{textAlign: 'right', fontWeight: 700, fontFamily: '"Roboto mono", monospace'}}>{props.value.toLocaleString('pt-br')}</div>
-
- 
+        Cell: (props) => <div style={{ textAlign: 'right', fontWeight: 700, fontFamily: '"Roboto mono", monospace' }}>{props.value.toLocaleString('pt-br')}</div>
       },
- 
       {
- 
         Header: 'Conversões',
- 
         accessor: 'conversions',
-
-        Cell: (props) => <div style={{display: 'flex', gap: 8, fontWeight: 700, fontFamily: '"Roboto mono", monospace'}}>
-          
-            <span>{props.value.thousands}k</span>
-            <span style={{ color: '#09f'}}>{props.value.percentage}%</span>
-
-          </div>
- 
+        Cell: (props) => <div style={{ display: 'flex', gap: 8, fontWeight: 700, fontFamily: '"Roboto mono", monospace' }}>
+          <span>{props.value.thoushands}k</span>
+          <span style={{ color: '#09f' }}>{props.value.percentage}%</span>
+        </div>
       },
-
       {
- 
         Header: 'Ações',
-
-        Cell: () => <div style={{textAlign: 'right'}}>
-          
-            todo: actions
-
-          </div>
- 
+        Cell: () => <div style={{ textAlign: 'right' }}>
+          todo: actions
+        </div>
       },
-
     ],
- 
     []
- 
   )
 
- 
   const instance = useTable<Post>({ data, columns })
 
   return <Table<Post> instance={instance} />
-
 }

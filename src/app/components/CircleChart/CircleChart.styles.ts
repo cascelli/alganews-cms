@@ -1,15 +1,10 @@
-import styled from "styled-components";
-
-interface PercentageProps {
-  color: string;
-}
+import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 `
 
 export const SvgWrapper = styled.div`
@@ -18,7 +13,6 @@ export const SvgWrapper = styled.div`
   &:not(:last-child) {
     margin-bottom: 16px;
   }
-
 `
 
 export const Svg = styled.svg`
@@ -30,23 +24,22 @@ export const Circle = styled.circle`
 `
 
 export const CircleBG = styled.circle.attrs({
-  // fill: '#fff',
   fill: 'none',
 })``
 
-export const Percentage = styled.span<PercentageProps>`
+export const Percentage = styled.span`
   position: absolute;
   top: 0;
   left: 0;
-  
+
   width: 100%;
   height: 100%;
-
+  
   display: flex;
   justify-content: center;
   align-items: center;
 
-  color: ${ (props) => props.color };
+  color: #274060;
 
   font-weight: 900;
   font-size: 1.2em;
@@ -55,6 +48,6 @@ export const Percentage = styled.span<PercentageProps>`
 export const Caption = styled.span`
   font-size: 1em;
   font-weight: 400;
-  /* text-transform: lowercase; */
+  text-transform: lowercase;
   color: #274060;
 `

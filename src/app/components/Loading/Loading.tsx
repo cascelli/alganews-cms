@@ -1,20 +1,19 @@
 import { LoadingWrapper } from "./Loading.styles";
 
 interface LoadingProps {
-    show?: boolean
+  show?: boolean
 }
 
 export default function Loading(props: LoadingProps) {
+  if (!props.show)
+    return null
 
-    if (!props.show)
-        return null
-        
-    return <LoadingWrapper>
-        <div className="lds-ring">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </LoadingWrapper>
+  return <LoadingWrapper>
+    <div className="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </LoadingWrapper>
 }

@@ -1,27 +1,24 @@
-//import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Story, Meta } from '@storybook/react';
-
-import Paragraph, { ParagraphProps } from '../app/components/Typography/Paragraph'
+import Paragraph, { ParagraphProps } from '../app/components/Typography/Paragraph';
 
 export default {
-  title: 'Typograph/Paragraph',
+  title: 'Typography/Paragraph',
   component: Paragraph,
-//} as ComponentMeta<typeof Paragraph>
+  // argTypes: {
+  //   backgroundColor: { control: 'color' },
+  // },
 } as Meta;
 
-//const Template: ComponentStory<typeof ParagraphProps> = (args) => <Paragraph {...args} />
-//const Template: ComponentStory<typeof Paragraph> = (args) => <Paragraph {...args} />
-const Template: Story<ParagraphProps> = (args) => <Paragraph {...args} />
+const Template: Story<ParagraphProps> = (args) => <Paragraph {...args} />;
 
 export const Default = Template.bind({})
 Default.args = {
   size: 'default',
-  children: 'Loren ipsum doren amet Loren ipsum doren amet Loren ipsum doren amet Loren ipsum doren amet Loren ipsum doren amet',
-};
+  children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel'
+}
 
 export const Small = Template.bind({})
 Small.args = {
   size: 'small',
-  children: 'Loren ipsum doren amet Loren ipsum doren amet Loren ipsum doren amet Loren ipsum doren amet Loren ipsum doren amet',
-};
-
+  children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel'
+}

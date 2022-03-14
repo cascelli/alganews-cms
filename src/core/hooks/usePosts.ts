@@ -6,11 +6,17 @@ import selectPostsFetching from "../selectors/selectPostsFetching";
 import * as PostActions from "../store/Post.slice";
 
 export default function usePosts() {
+  // Cria um dispatch
   const dispatch = useDispatch();
 
-  const paginatedPosts = useSelector(selectPaginatedPosts);
+  // Cria seletores
+  // Seletor da propriedade fetching
   const loading = useSelector(selectPostsFetching);
 
+  // Seletor da propriedade paginated
+  const paginatedPosts = useSelector(selectPaginatedPosts);
+
+  // Metodo para retornar os posts
   const fetchPosts = useCallback(
     async function (query: Post.Query) {
       dispatch(PostActions.fetchPosts(query));
@@ -18,6 +24,7 @@ export default function usePosts() {
     [dispatch]
   );
 
+  // retorna o loading e o paginatedPosts e o metodo para retornar os posts
   return {
     paginatedPosts,
     loading,

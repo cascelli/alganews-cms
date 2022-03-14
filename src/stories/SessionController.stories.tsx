@@ -1,6 +1,4 @@
-//import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Story, Meta } from '@storybook/react';
-
 import SessionController, { SessionControllerProps } from '../app/components/SessionController';
 
 export default {
@@ -11,19 +9,15 @@ export default {
       action: 'logout'
     }
   }
-//} as ComponentMeta<typeof SessionController>;
 } as Meta;
 
-//const Template: ComponentStory<typeof SessionControllerProps> = (args) => 
-//const Template: ComponentStory<typeof SessionController> = (args) => 
-const Template: Story<SessionControllerProps> = (args) => 
+const Template: Story<SessionControllerProps> = (args) =>
   <div>
     <SessionController {...args} />
   </div>
 
-export const Default = Template.bind({});
-
+export const Default = Template.bind({})
 Default.args = {
   name: 'Daniel Bonfacio',
   description: 'editor ha muito tempo'
-};
+}

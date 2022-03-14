@@ -1,20 +1,24 @@
-import { confirmAlert } from "react-confirm-alert";
-
-import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
-import Info from "../../app/components/Info/Info";
+import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import Info from '../../app/components/Info/Info';
 
 interface InfoProps {
-  title: string;
-  description: string;
+  title: string
+  description: string
 }
 
-export default function info(props: InfoProps) {
+export default function info (props: InfoProps) {
   setTimeout(() => {
     confirmAlert({
-      overlayClassName: "info-overlay",
+      overlayClassName: 'info-overlay',
       customUI: () => {
-        return <Info title={props.title} description={props.description} />;
-      },
+        return (
+          <Info
+            title={props.title}
+            description={props.description}
+          />
+        );
+      }
     });
-  }, 0);
+  }, 0)
 }

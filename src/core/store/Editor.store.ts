@@ -7,7 +7,7 @@ import {
 } from "@reduxjs/toolkit";
 import { User, UserService } from "danielbonifacio-sdk";
 
-// Criaa thunk
+// Cria a Thunk
 export const fetchAllEditors = createAsyncThunk(
   "editor/fetchAllEditors",
   async function () {
@@ -15,19 +15,19 @@ export const fetchAllEditors = createAsyncThunk(
   }
 );
 
-// Cria uma interface para o estado inicial
+// Cria a interface para definir o tipo a ser usado no estado inicial
 interface EditorStoreState {
   fetching: boolean;
   editorsList: User.EditorSummary[];
 }
 
-// Cria o estado inicial
+// Cria o Estado inicial
 const initialState: EditorStoreState = {
   editorsList: [],
   fetching: false,
 };
 
-// cria o Reducer
+// Cria o Reducer
 export const editorReducer = createReducer(initialState, (builder) => {
   const pending = isPending(fetchAllEditors);
   const rejected = isRejected(fetchAllEditors);

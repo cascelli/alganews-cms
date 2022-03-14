@@ -1,5 +1,5 @@
-import curriedTransparentize from 'polished/lib/color/transparentize';
-import { createGlobalStyle } from 'styled-components/macro';
+import { transparentize } from 'polished'
+import { createGlobalStyle } from 'styled-components/macro'
 
 export default createGlobalStyle`
   * {
@@ -11,16 +11,17 @@ export default createGlobalStyle`
   body {
     font-family: 'Lato', sans-serif;
     background-color: #F3F8FA;
-    color: #274060
+    color: #274060;
   }
 
   .confirm-overlay {
-    background-color: ${curriedTransparentize(0.2, '#274060')};
+    background-color: ${transparentize(0.2, '#274060')};
   }
-
   .info-overlay {
-    background-color: ${curriedTransparentize(0.2, '#F3F8FA')};
+    background-color: ${transparentize(0.2, '#F3F8FA')};
   }
-
-
+  .modal-overlay {
+    background-color: ${transparentize(0.2, '#F3F8FA')};
+    backdrop-filter: blur(5px);
+  }
 `

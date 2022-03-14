@@ -9,41 +9,39 @@ export interface CircleChartProps {
   strokeWidth?: number
 }
 
-function CircleChart( props: CircleChartProps) {
-
-  // Funcao que recupera a cor do chart com base no tema
-  const getThemeColor= () => 
+function CircleChart (props: CircleChartProps) {
+  // função que recupera a cor do chart com base no tema
+  const getThemeColor = () =>
     props.theme === 'primary' ? '#09f' : '#274060';
 
-  // setup (configurações de cor, borda, etc)
+  // setup (configurações de cor, borda, etc.)
   const THEME = getThemeColor()
   const STROKE_WIDTH = props.strokeWidth || 8
   const STROKE_COLOR = THEME
 
-  // matematica 
-  const CENTER = props.size / 2 
+  // matemática da coisa
+  const CENTER = props.size / 2
   const RADIUS = props.size / 2 - STROKE_WIDTH / 2
   const CIRCUMFERENCE = 2 * Math.PI * RADIUS
 
   // estado de offset
   const [offset, setOffset] = useState(CIRCUMFERENCE)
 
-  // observador para animar o offset
+  // oberservador para animar o ofsset
   useEffect(() => {
     const progressOffset = ((100 - props.progress) / 100) * CIRCUMFERENCE
     setOffset(progressOffset)
-  }, [setOffset,CIRCUMFERENCE, props.progress, offset])
-
+  }, [setOffset, CIRCUMFERENCE, props.progress, offset])
 
   return <CC.Wrapper>
     <CC.SvgWrapper style={{ width: props.size, height: props.size }}>
       <CC.Svg width={props.size} height={props.size}>
-        <CC.CircleBG 
+        <CC.CircleBG
           cy={CENTER}
           cx={CENTER}
           r={RADIUS}
         />
-        <CC.Circle 
+        <CC.Circle
           fill="none"
 
           cy={CENTER}
@@ -56,7 +54,7 @@ function CircleChart( props: CircleChartProps) {
           strokeDashoffset={offset}
         />
       </CC.Svg>
-      <CC.Percentage color={THEME}>
+      <CC.Percentage style={{ color: THEME }}>
         { Math.ceil(props.progress) }%
       </CC.Percentage>
     </CC.SvgWrapper>

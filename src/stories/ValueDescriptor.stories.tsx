@@ -1,33 +1,26 @@
-//import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Story, Meta } from '@storybook/react';
-
 import ValueDescriptor, { ValueDescriptorProps } from '../app/components/ValueDescriptor/ValueDescriptor';
 
 export default {
   title: 'Example/ValueDescriptor',
   component: ValueDescriptor,
-//} as ComponentMeta<typeof ValueDescriptor>;
 } as Meta;
 
-//const Template: ComponentStory<typeof ValueDescriptorProps> = (args) => <ValueDescriptor {...args} />;
-//const Template: ComponentStory<typeof ValueDescriptor> = (args) => <ValueDescriptor {...args} />;
 const Template: Story<ValueDescriptorProps> = (args) => <ValueDescriptor {...args} />;
 
 export const Default = Template.bind({})
 Default.args = {
   description: 'Ganhos na semana',
-  value: 560322.02 
+  value: 560322.02
 }
-
 
 export const DefaultCurrency = Template.bind({})
 DefaultCurrency.args = {
   description: 'Ganhos na semana',
-  value: 560322.02 ,
+  value: 560322.02,
   isCurrency: true,
   color: 'default'
 }
-
 
 export const Primary = Template.bind({})
 Primary.args = {
@@ -36,7 +29,6 @@ Primary.args = {
   isCurrency: false,
   color: 'primary'
 }
-
 
 export const PrimaryCurrency = Template.bind({})
 PrimaryCurrency.args = {

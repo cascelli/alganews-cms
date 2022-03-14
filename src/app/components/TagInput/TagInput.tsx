@@ -12,16 +12,15 @@ const KeyCodes = {
   comma: 188,
   enter: 13,
   tab: 9
-
 }
 
 function TagInput (props: TagInputProps) {
-   return <TI.Wrapper>
+  return <TI.Wrapper>
     <ReactTagInput
       placeholder={props.placeholder}
       handleAddition={props.onAdd}
-      handleDelete={props.onDelete}   
-      allowDragDrop={false}  
+      handleDelete={props.onDelete}
+      allowDragDrop={false}
       autofocus={false}
       tags={props.tags}
       delimiters={[KeyCodes.comma, KeyCodes.enter, KeyCodes.tab]}
