@@ -57,12 +57,17 @@ export default function PostList() {
       {
         Header: "",
         accessor: "id", // accessor is the "key" in the data
-        Cell: () => <Icon path={mdiOpenInNew} size={"14px"} color={"#09f"} />,
+        //Cell: () => <Icon path={mdiOpenInNew} size={"14px"} color={"#09f"} />,
+        Cell: () => (
+          <div style={{ paddingLeft: 8, width: "16px" }}>
+            <Icon path={mdiOpenInNew} size={"16px"} color={"#09f"} />
+          </div>
+        ),
       },
       {
         Header: () => <div style={{ textAlign: "left" }}>Título</div>,
         accessor: "title",
-        width: 320,
+        //width: 320,
         Cell: (props) => (
           <div
             style={{
@@ -70,7 +75,8 @@ export default function PostList() {
               display: "flex",
               gap: 8,
               alignItems: "center",
-              maxWidth: 270,
+              //maxWidth: 270,
+              maxWidth: 400,
             }}
           >
             <img
@@ -109,6 +115,7 @@ export default function PostList() {
           </div>
         ),
       },
+      /*
       {
         Header: () => (
           <div style={{ textAlign: "right" }}>Última atualização</div>
@@ -125,6 +132,7 @@ export default function PostList() {
           </div>
         ),
       },
+      */
       {
         id: Math.random().toString(),
         accessor: "published",
