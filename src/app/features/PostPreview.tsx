@@ -1,23 +1,26 @@
 import { useEffect } from "react";
-import { useState } from "react";
+//import { useState } from "react";
 import styled from "styled-components";
 import withBoundary from "../../core/hoc/withBoundary";
 import Button from "../components/Button/Button";
 import MarkdownEditor from "../components/MarkdownEditor";
 import Loading from "../components/Loading";
-import info from "../../core/utils/info";
+//import info from "../../core/utils/info";
 import confirm from "../../core/utils/confirm";
 import modal from "../../core/utils/modal";
-import { Post, PostService } from "danielbonifacio-sdk";
+//import { Post, PostService } from "danielbonifacio-sdk";
+import useSinglePost from "../../core/hooks/useSinglePost";
 
 interface PostPreviewProps {
   postId: number;
 }
 
 function PostPreview(props: PostPreviewProps) {
-  const [post, setPost] = useState<Post.Detailed>();
-  const [loading, setLoading] = useState(false);
+  //const [post, setPost] = useState<Post.Detailed>();
+  //const [loading, setLoading] = useState(false);
+  const { fetchPost, loading, post, publishPost } = useSinglePost();
 
+  /*
   async function publishPost() {
     await PostService.publishExistingPost(props.postId);
     info({
@@ -25,6 +28,7 @@ function PostPreview(props: PostPreviewProps) {
       description: "Você publicou o post com sucesso",
     });
   }
+  */
 
   function reopenModal() {
     modal({
@@ -32,12 +36,17 @@ function PostPreview(props: PostPreviewProps) {
     });
   }
 
+  /*
   useEffect(() => {
     setLoading(true);
     PostService.getExistingPost(props.postId)
       .then(setPost)
       .finally(() => setLoading(false));
   }, [props.postId]);
+  */
+  useEffect(() => {
+    fetchPost(props.postId);
+  }, [fetchPost, props.postId]);
 
   if (loading) return <Loading show />;
 
