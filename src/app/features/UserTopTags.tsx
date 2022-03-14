@@ -1,15 +1,23 @@
-import { Metric, MetricService } from "danielbonifacio-sdk";
-import { useEffect, useState } from "react";
+//import { Metric, MetricService } from "danielbonifacio-sdk";
+//import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 import styled from "styled-components";
+import useTopTags from "../../core/hooks/useTopTags";
 import CircleChart from "../components/CircleChart";
 
 export default function UserTopTags() {
-  const [topTags, setTopTags] = useState<Metric.EditorTagRatio>([]);
+  //const [topTags, setTopTags] = useState<Metric.EditorTagRatio>([]);
+  const { topTags, fetchTopTags } = useTopTags();
 
+  /*
   useEffect(() => {
     MetricService.getTop3Tags().then(setTopTags);
   }, []);
+  */
+  useEffect(() => {
+    fetchTopTags();
+  }, [fetchTopTags]);
 
   if (!topTags.length)
     return (
