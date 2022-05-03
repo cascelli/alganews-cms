@@ -58,7 +58,7 @@ export default function PostList() {
         Header: "",
         accessor: "id", // accessor is the "key" in the data
         //Cell: () => <Icon path={mdiOpenInNew} size={"14px"} color={"#09f"} />,
-        Cell: (row) => (
+        Cell: ({ row }) => (
           <div style={{ paddingLeft: 8, width: "16px" }}>
             <a
               target={"_blank"}
