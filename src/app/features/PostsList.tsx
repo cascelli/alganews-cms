@@ -58,9 +58,15 @@ export default function PostList() {
         Header: "",
         accessor: "id", // accessor is the "key" in the data
         //Cell: () => <Icon path={mdiOpenInNew} size={"14px"} color={"#09f"} />,
-        Cell: () => (
+        Cell: (row) => (
           <div style={{ paddingLeft: 8, width: "16px" }}>
-            <Icon path={mdiOpenInNew} size={"16px"} color={"#09f"} />
+            <a
+              target={"_blank"}
+              href={`http://localhost:3002/posts/${row.original.id}/${row.original.slug}`}
+              rel="noreferrer noopener"
+            >
+              <Icon path={mdiOpenInNew} size={"16px"} color={"#09f"} />
+            </a>
           </div>
         ),
       },
