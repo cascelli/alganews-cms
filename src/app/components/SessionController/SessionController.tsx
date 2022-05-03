@@ -1,5 +1,3 @@
-import { format } from "date-fns";
-import ptBR from "date-fns/esm/locale/pt-BR";
 import { useCallback } from "react";
 import Skeleton from "react-loading-skeleton";
 import AuthService from "../../../auth/Authorization.service";
@@ -7,6 +5,8 @@ import useAuth from "../../../core/hooks/useAuth";
 import Button from "../Button/Button";
 import * as SC from "./SessionController.styles";
 import confirm from "../../../core/utils/confirm";
+import { format } from "date-fns";
+import ptBR from "date-fns/esm/locale/pt-BR";
 
 export interface SessionControllerProps {
   name: string;
