@@ -1,5 +1,6 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User, UserService } from 'danielbonifacio-sdk';
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { User, UserService } from "danielbonifacio-sdk";
+import AuthService from "../../auth/Authorization.service";
 
 type PA<T> = PayloadAction<T>;
 
@@ -15,10 +16,15 @@ const initialState: AuthState = {
 
 // Cria uma Thunk
 export const fetchUser = createAsyncThunk(
-  'auth/fetchUser',
+  "auth/fetchUser",
   async (userId: number, { rejectWithValue, dispatch }) => {
     try {
       const user = await UserService.getDetailedUser(userId);
+      if (user.role !== "EDITOR") {
+        window.alert("Voce nao tem acesso a este sistema ");
+        AuthService.imperativelySendToLogout();
+        return;
+      }
       dispatch(storeUser(user));
     } catch (err) {
       return rejectWithValue({ ...err });
@@ -28,7 +34,7 @@ export const fetchUser = createAsyncThunk(
 
 const authSlice = createSlice({
   initialState,
-  name: 'auth',
+  name: "auth",
   // Define as ações do slice
   reducers: {
     storeUser(state, action: PA<User.Detailed>) {
