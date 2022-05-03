@@ -37,7 +37,9 @@ export default class AuthService {
     // envia o usuário para a url de logout do sevidor de autenticação e desabilitar a sua seção
     // do lado do servidor e o redireciona para a página inicial da aplicação
     // que devido au fluxo de login implementado vai direcioná-lo para uma nova autenticação
-    window.location.href = `http://localhost:8081/logout?redirect=http://localhost:3000`;
+    //window.location.href = `http://localhost:8081/logout?redirect=http://localhost:3000`;
+    // Alterado para a porta 3001 para permitir o funcionamento simultâneo com o alganews-admin
+    window.location.href = `http://localhost:8081/logout?redirect=http://localhost:3001`;
   }
 
   // Recupera/Renova token
