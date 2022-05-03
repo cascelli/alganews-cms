@@ -47,11 +47,13 @@ export default class AuthService {
     // Define um objeto de configuração para poder obter o AccessToken:
     refreshToken: string;
     codeVerifier: string;
+    scope?: string; // Usado para gerar token com escopo limitado - Cap 17.40
   }) {
     const formUrlEncoded = qs.stringify({
       // Monta o objeto de configuração necessário na requisição para recuperar o token
       refreshToken: config.refreshToken,
       code_verifier: config.codeVerifier,
+      scope: config.scope,
       grant_type: "refresh_token",
       //client_id: "alganews-admin", // Trocado para funcionar com o alganews-cms
       client_id: "alganews-cms",

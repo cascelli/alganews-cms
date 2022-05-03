@@ -4,11 +4,12 @@ import Icon from "@mdi/react";
 import { Post } from "danielbonifacio-sdk";
 import format from "date-fns/format";
 import parseISO from "date-fns/parseISO";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useEffect } from "react";
 import { useMemo } from "react";
 import Skeleton from "react-loading-skeleton";
 import { Column, usePagination, useTable } from "react-table";
+import AuthService from "../../auth/Authorization.service";
 import usePosts from "../../core/hooks/usePosts";
 import modal from "../../core/utils/modal";
 import Loading from "../components/Loading";
@@ -52,6 +53,31 @@ export default function PostList() {
 
   //if (error) throw error;
 
+  const openInNew = useCallback(async (post: Post.Summary) => {
+    let url = `http://localhost:3002/posts/${post.id}/${post.slug}`;
+
+    if (!post.published) {
+      const codeVerifier = AuthService.getCodeVerifier();
+      const refreshToken = AuthService.getRefreshToken();
+
+      if (codeVerifier && refreshToken) {
+        const { access_token } = await AuthService.getNewToken({
+          codeVerifier,
+          refreshToken,
+          scope: "post:read",
+        });
+
+        url += `?token=${access_token}`;
+      }
+    }
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.target = " _blank";
+    a.rel = "noopener noreferrer";
+    a.click();
+  }, []);
+
   const columns = useMemo<Column<Post.Summary>[]>(
     () => [
       {
@@ -60,13 +86,20 @@ export default function PostList() {
         //Cell: () => <Icon path={mdiOpenInNew} size={"14px"} color={"#09f"} />,
         Cell: ({ row }) => (
           <div style={{ paddingLeft: 8, width: "16px" }}>
-            <a
+            {/* <a
               target={"_blank"}
               href={`http://localhost:3002/posts/${row.original.id}/${row.original.slug}`}
               rel="noreferrer noopener"
             >
               <Icon path={mdiOpenInNew} size={"16px"} color={"#09f"} />
-            </a>
+            </a>  */}
+            {/* Substituido bloco acima por funcao a ser chamada no evendo onClick*/}
+            <span
+              style={{ cursor: "pointer" }}
+              onClick={() => openInNew(row.original)}
+            >
+              <Icon path={mdiOpenInNew} size={"16px"} color={"#09f"} />
+            </span>
           </div>
         ),
       },
@@ -142,7 +175,7 @@ export default function PostList() {
       {
         id: Math.random().toString(),
         accessor: "published",
-        Header: () => <div style={{ textAlign: "right" }}>Ações</div>,
+        Header: () => <div style={{ textAlign: "right" }}>Status</div>,
         Cell: (props) => (
           <div style={{ textAlign: "right" }}>
             {props.value ? "Publicado" : "Privado"}
