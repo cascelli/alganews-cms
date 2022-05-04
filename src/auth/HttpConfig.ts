@@ -1,6 +1,12 @@
-import axios from 'axios';
-import Service from 'danielbonifacio-sdk/dist/Service';
-import AuthService from './Authorization.service';
+import axios from "axios";
+import Service from "danielbonifacio-sdk/dist/Service";
+import AuthService from "./Authorization.service";
+
+// Usando variavel de ambiente para determinar valores
+const { REACT_APP_API_BASE_URL } = process.env;
+
+// Ajustando a base URL da API no danielbonifacio-sdk
+if (REACT_APP_API_BASE_URL) Service.setBaseUrl(REACT_APP_API_BASE_URL);
 
 // Define um interceptador de requisiçoes
 Service.setRequestInterceptors(async (request) => {
@@ -12,7 +18,7 @@ Service.setRequestInterceptors(async (request) => {
   // Se o AccessToken existir
   // injeta o token de acesso na requisição
   if (accessToken) {
-    request.headers['Authorization'] = `Bearer ${accessToken}`;
+    request.headers["Authorization"] = `Bearer ${accessToken}`;
   }
 
   // Retorna o objeto de requisição com o AccessToken adicionado, se ele existir
@@ -60,7 +66,7 @@ Service.setResponseInterceptors(
 
       // implementa o token na requisição
       originalRequest.headers[
-        'Authorization'
+        "Authorization"
       ] = `Bearer ${tokens.access_token}`;
 
       // retorna uma nova chamada do axios com essa requisição
