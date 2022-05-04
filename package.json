@@ -36,11 +36,13 @@
     "react-table": "^7.7.0",
     "react-tag-input": "6.5.2",
     "redux": "^4.1.0",
+    "source-map-explorer": "^2.5.2",
     "styled-components": "^5.2.3",
     "uuid": "^8.3.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

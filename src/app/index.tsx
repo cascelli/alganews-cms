@@ -1,4 +1,5 @@
 import jwtDecode from "jwt-decode";
+import React, { Suspense } from "react";
 import { useEffect, useMemo } from "react";
 import {
   //BrowserRouter,
@@ -12,12 +13,16 @@ import AuthService from "../auth/Authorization.service";
 import useAuth from "../core/hooks/useAuth";
 import info from "../core/utils/info";
 import Loading from "./components/Loading";
-import EditorProfileView from "./views/EditorProfile.view";
-import EditorsListView from "./views/EditorsList.view";
-import Home from "./views/Home.view";
-import NotFound404 from "./views/NotFound404.view";
-import PostCreateView from "./views/PostCreate.view";
-import PostEditView from "./views/PostEdit.view";
+
+// todo : Implementar Lazy Loading nas views
+const Home = React.lazy(() => import("./views/Home.view"));
+const EditorProfileView = React.lazy(
+  () => import("./views/EditorProfile.view")
+);
+const EditorsListView = React.lazy(() => import("./views/EditorsList.view"));
+const NotFound404 = React.lazy(() => import("./views/NotFound404.view"));
+const PostCreateView = React.lazy(() => import("./views/PostCreate.view"));
+const PostEditView = React.lazy(() => import("./views/PostEdit.view"));
 
 // Usando variavel de ambiente para determinar valores
 const APP_BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -145,14 +150,17 @@ export default function App() {
   return (
     // Removido e levado para /src/index.tsx
     // <BrowserRouter>
-    <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/editores" exact component={EditorsListView} />
-      <Route path="/editores/:id" exact component={EditorProfileView} />
-      <Route path="/posts/criar" exact component={PostCreateView} />
-      <Route path="/posts/editar/:id" exact component={PostEditView} />
-      <Route component={NotFound404} />
-    </Switch>
+    // LazyLoading :
+    <Suspense fallback={<Loading show />}>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/editores" exact component={EditorsListView} />
+        <Route path="/editores/:id" exact component={EditorProfileView} />
+        <Route path="/posts/criar" exact component={PostCreateView} />
+        <Route path="/posts/editar/:id" exact component={PostEditView} />
+        <Route component={NotFound404} />
+      </Switch>
+    </Suspense>
     // </BrowserRouter>
   );
 }
