@@ -2,8 +2,12 @@ import axios from "axios";
 import qs from "qs";
 import pkceChallenge from "pkce-challenge";
 
+// Usando variavel de ambiente para determinar valores
+const AUTH_SERVER = process.env.REACT_APP_AUTH_SERVER_BASE_URL;
+
 const authServer = axios.create({
-  baseURL: "http://localhost:8081",
+  //baseURL: "http://localhost:8081", // Trocando por variavel de ambiente
+  baseURL: AUTH_SERVER,
 });
 
 // Gera um interceptador de resposta para interceptar as funcoes de erro
@@ -39,7 +43,8 @@ export default class AuthService {
     // que devido au fluxo de login implementado vai direcioná-lo para uma nova autenticação
     //window.location.href = `http://localhost:8081/logout?redirect=http://localhost:3000`;
     // Alterado para a porta 3001 para permitir o funcionamento simultâneo com o alganews-admin
-    window.location.href = `http://localhost:8081/logout?redirect=http://localhost:3001`;
+    //window.location.href = `http://localhost:8081/logout?redirect=http://localhost:3001`;
+    window.location.href = `${AUTH_SERVER}/logout?redirect=http://localhost:3001`;
   }
 
   // Recupera/Renova token
@@ -115,7 +120,8 @@ export default class AuthService {
       code_challenge_method: "S256",
     });
 
-    return `http://localhost:8081/oauth/authorize?${config}`;
+    //return `http://localhost:8081/oauth/authorize?${config}`;
+    return `${AUTH_SERVER}/oauth/authorize?${config}`;
   }
 
   public static async imperativelySendToLoginScreen() {
