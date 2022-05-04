@@ -4,6 +4,7 @@ import pkceChallenge from "pkce-challenge";
 
 // Usando variavel de ambiente para determinar valores
 const AUTH_SERVER = process.env.REACT_APP_AUTH_SERVER_BASE_URL;
+const APP_BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const authServer = axios.create({
   //baseURL: "http://localhost:8081", // Trocando por variavel de ambiente
@@ -44,7 +45,7 @@ export default class AuthService {
     //window.location.href = `http://localhost:8081/logout?redirect=http://localhost:3000`;
     // Alterado para a porta 3001 para permitir o funcionamento simultâneo com o alganews-admin
     //window.location.href = `http://localhost:8081/logout?redirect=http://localhost:3001`;
-    window.location.href = `${AUTH_SERVER}/logout?redirect=http://localhost:3001`;
+    window.location.href = `${AUTH_SERVER}/logout?redirect=${APP_BASE_URL}`;
   }
 
   // Recupera/Renova token

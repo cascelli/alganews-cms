@@ -17,6 +17,9 @@ import PostTitleAnchor from "../components/PostTitleAnchor";
 import Table from "../components/Table/Table";
 import PostPreview from "./PostPreview";
 
+// Usando variavel de ambiente para determinar valores
+const APP_BLOG_SERVER = process.env.REACT_APP_BLOG_SERVER_BASE_URL;
+
 export default function PostList() {
   // const [posts, setPosts] = useState<Post.Paginated>();
   // const [error, setError] = useState<Error>();
@@ -54,7 +57,8 @@ export default function PostList() {
   //if (error) throw error;
 
   const openInNew = useCallback(async (post: Post.Summary) => {
-    let url = `http://localhost:3002/posts/${post.id}/${post.slug}`;
+    //let url = `http://localhost:3002/posts/${post.id}/${post.slug}`;
+    let url = `${APP_BLOG_SERVER}/posts/${post.id}/${post.slug}`;
 
     if (!post.published) {
       const codeVerifier = AuthService.getCodeVerifier();

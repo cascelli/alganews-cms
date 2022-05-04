@@ -19,6 +19,9 @@ import NotFound404 from "./views/NotFound404.view";
 import PostCreateView from "./views/PostCreate.view";
 import PostEditView from "./views/PostEdit.view";
 
+// Usando variavel de ambiente para determinar valores
+const APP_BASE_URL = process.env.REACT_APP_BASE_URL;
+
 export default function App() {
   // Necessários na implementacao da segurança
   const history = useHistory();
@@ -93,7 +96,8 @@ export default function App() {
           codeVerifier,
           //redirectUri: "http://localhost:3000/authorize",
           // Alterado para poder funcionar em conjunto com o alganews-admin
-          redirectUri: "http://localhost:3001/authorize",
+          //redirectUri: "http://localhost:3001/authorize",
+          redirectUri: `${APP_BASE_URL}/authorize`,
         });
 
         // armazena o AccessToken no storage local
