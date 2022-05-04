@@ -187,7 +187,7 @@ export default function PostList() {
         ),
       },
     ],
-    []
+    [openInNew]
   );
 
   /*
