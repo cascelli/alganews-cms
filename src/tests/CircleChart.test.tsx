@@ -1,6 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import CircleChart from "../app/components/CircleChart";
 
+// test("mock function", () => {a
+//   // Define uma função mocada
+//   const mockFn = jest.fn();
+//   // Executa a funcao mocada
+//   mockFn();
+//   // Verifica se a funcao mocada foi chamada
+//   expect(mockFn).toHaveBeenCalled();
+// });
+
 // test("true é truthy", () => {
 //   const value = true;
 //   expect(value).toBeTruthy();
@@ -31,7 +40,11 @@ it("renders component with correct size", () => {
 });
 
 it("throws an error if progress is greater than 100", () => {
+  const spy = jest.spyOn(global.console, "error").mockImplementation(() => {}); // mocando a funcao error do console
+
   expect(() =>
     render(<CircleChart size={180} progress={101} caption={"javascript"} />)
   ).toThrowError();
+
+  expect(spy).toHaveBeenCalled();
 });
