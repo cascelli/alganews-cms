@@ -40,6 +40,7 @@ it("renders component with correct size", () => {
 });
 
 it("throws an error if progress is greater than 100", () => {
+  // Cria um mock para a funcao console.log e altera seu valor padrao
   const spy = jest.spyOn(global.console, "error").mockImplementation(() => {}); // mocando a funcao error do console
 
   expect(() =>
@@ -47,4 +48,11 @@ it("throws an error if progress is greater than 100", () => {
   ).toThrowError();
 
   expect(spy).toHaveBeenCalled();
+
+  // Limpa o mock da funcao console.log
+  spy.mockRestore();
+});
+
+test("faz o log de um erro", () => {
+  console.error("dasaksjalsja");
 });
