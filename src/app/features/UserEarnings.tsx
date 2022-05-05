@@ -1,23 +1,10 @@
-//import { User, UserService } from "danielbonifacio-sdk";
-//import { useEffect, useState } from "react";
-import { useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 import styled from "styled-components";
-import useUser from "../../core/hooks/useUser";
+import useAuth from "../../core/hooks/useAuth";
 import ValueDescriptor from "../components/ValueDescriptor/ValueDescriptor";
 
 export default function UserEarnings() {
-  // const [user, setUser] = useState<User.Detailed>();
-  const { user, fetchUser } = useUser();
-
-  /*
-  useEffect(() => {
-    UserService.getDetailedUser(6).then(setUser);
-  }, []);
-  */
-  useEffect(() => {
-    fetchUser();
-  }, [fetchUser]);
+  const { user } = useAuth();
 
   if (!user)
     return (
@@ -38,6 +25,7 @@ export default function UserEarnings() {
         isCurrency
       />
       <ValueDescriptor
+        data-testid={"weeklyEarnings"}
         color="primary"
         description="Ganhos na semana"
         value={user.metrics.weeklyEarnings}
