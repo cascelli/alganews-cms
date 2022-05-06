@@ -5,7 +5,9 @@ import useAuth from "../../../core/hooks/useAuth";
 import Button from "../Button/Button";
 import * as SC from "./SessionController.styles";
 import confirm from "../../../core/utils/confirm";
-import { format } from "date-fns";
+import format from "date-fns/format";
+import parseISO from "date-fns/parseISO";
+
 import ptBR from "date-fns/esm/locale/pt-BR";
 
 export interface SessionControllerProps {
@@ -37,7 +39,7 @@ function SessionController(props: SessionControllerProps) {
         Editor desde{" "}
         <strong>
           {/* {format(new Date(user.createdAt), "MMMM 'de' yyyy", { locale: ptBR })} */}
-          {format(new Date(user.createdAt), "MMM 'de' yyyy", { locale: ptBR })}
+          {format(parseISO(user.createdAt), "MMM 'de' yyyy", { locale: ptBR })}
         </strong>
       </SC.Description>
       {/* <Button variant="danger" label="Logout" onClick={props.onLogout} /> */}
